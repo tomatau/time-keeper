@@ -1,0 +1,11 @@
+tr {
+    &.cancelled {
+        @extend .bg-danger;
+    }
+    &.rescheduled {
+        @extend .bg-warning;
+    }
+    &.completed {
+        @extend .bg-success;
+    }
+}

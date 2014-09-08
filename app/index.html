@@ -1,0 +1,249 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>time keeper</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="container">
+            <div class="header">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href="#">Week</a></li>
+                    <li><a href="#">Students</a></li>
+                </ul>
+                <h3 class="text-muted">time keeper</h3>
+            </div>
+            <div class="subnav">
+                <ul class="list-inline">
+                    <li><a href="#">Add</a></li>
+                    <li><a href="#">Archive</a></li>
+                </ul>
+            </div>
+
+            <section class="students">
+                <header>
+                    <h4>Students</h4>
+                </header>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Sessions</th>
+                            <th>Curriculum</th>
+                            <th>Avg</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="student">
+                            <td class="name">
+                                <a href="#">Bob</a>
+                            </td>
+                            <td class="num-sessions">
+                                1/10
+                            </td>
+                            <td class="num-sessions">
+                                FEWD
+                            </td>
+                            <td class="avg-time">
+                                56min
+                            </td>
+                            <td class="actions">
+                                <button class="btn btn-xs btn-danger">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </section>
+
+            <section class="next-sessions">
+                <header>
+                    <h4>Next Sessions</h4>
+                    <form name="next-sessions form-horizontal">
+                        <fieldset class="form-group">
+                            <label class="col-sm-2 control-label" for="num-shown">Show:</label>
+                            <div class="col-sm-10">
+                                <select class="form-control input-sm" name="num-shown">
+                                    <option value="1">1</option>
+                                    <option value="2" selected="selected">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                        </fieldset>
+                    </form>
+                </header>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a href="#">Student</a>
+                            </th>
+                            <th class="sort desc">
+                                <a href="#">Time <i class="glyphicon glyphicon-chevron-down"></i></a>
+                            </th>
+                            <th>
+                                <a href="#">Session #</a>
+                            </th>
+                            <th>
+                                <a href="#">Course</a>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="student">
+                            <td class="name">
+                                <a href="#">Bob</a>
+                            </td>
+                            <td class="time">
+                                02:00 - Wed, 2nd
+                            </td>
+                            <td class="sessions">
+                                2 / 13
+                            </td>
+                            <td class="course">
+                                FEWD
+                            </td>
+                            <td class="actions">
+                                <button class="btn btn-xs btn-danger">
+                                    Cancel
+                                </button>
+                                <button class="btn btn-xs btn-warning">
+                                    Reschedule
+                                </button>
+                                <button class="btn btn-xs btn-success">
+                                    Add
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="week-sessions">
+                <header>
+                    <h4>This Week</h4>
+                </header>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Time</th>
+                            <th>Session #</th>
+                            <th>Course</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="student">
+                            <td class="name">
+                                <a href="#">Judy</a>
+                            </td>
+                            <td class="time">
+                                15:00 - Wed, 4th
+                            </td>
+                            <td class="sessions">
+                                1 / 13
+                            </td>
+                            <td class="course">
+                                ANG002
+                            </td>
+                        </tr>
+                        <tr class="student">
+                            <td class="name">
+                                <a href="#">Jill</a>
+                            </td>
+                            <td class="time">
+                                14:00 - Wed, 4th
+                            </td>
+                            <td class="sessions">
+                                6 / 13
+                            </td>
+                            <td class="course">
+                                ANG002
+                            </td>
+                        </tr>
+                        <tr class="student rescheduled">
+                            <td class="name">
+                                <a href="#">Alf</a>
+                            </td>
+                            <td class="time">
+                                20:00 - Tue, 3rd
+                            </td>
+                            <td class="sessions">
+                                8 / 13
+                            </td>
+                            <td class="course">
+                                ANG001
+                            </td>
+                        </tr>
+                        <tr class="student completed">
+                            <td class="name">
+                                <a href="#">Bob</a>
+                            </td>
+                            <td class="time">
+                                16:00 - Tue, 3rd
+                            </td>
+                            <td class="sessions">
+                                1 / 13
+                            </td>
+                            <td class="course">
+                                FEWD004
+                            </td>
+                        </tr>
+                        <tr class="student cancelled">
+                            <td class="name">
+                                <a href="#">Dave</a>
+                            </td>
+                            <td class="time">
+                                16:00 - Sun, 1st
+                            </td>
+                            <td class="sessions">
+                                10 / 13
+                            </td>
+                            <td class="course">
+                                ANG001
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+
+
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/plugins.js -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
