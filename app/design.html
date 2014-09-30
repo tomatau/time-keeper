@@ -27,6 +27,7 @@
                 <ul class="nav nav-pills pull-right">
                     <li class="active"><a href="#">Week</a></li>
                     <li><a href="#">Students</a></li>
+                    <li><a href="#">Manage</a></li>
                 </ul>
                 <h3 class="text-muted">time keeper</h3>
             </div>
@@ -137,6 +138,7 @@
                         </tr>
                     </tbody>
                 </table>
+                <hr>
             </section>
 
             <section class="week-sessions">
@@ -225,6 +227,35 @@
                         </tr>
                     </tbody>
                 </table>
+                <hr>
+            </section>
+
+            <section class="manage">
+                <header>
+                    <h4>Manage Students</h4>
+                </header>
+                <div class="manage-controls">
+                    <button type="button" class="btn btn-primary">Add Course</button>
+                    <span class="help-block">Add a course that students can belong to. Students can only be in one course at one time; if the student is enrolled for 2 courses, create two students.</span>
+                    <button type="button" class="btn btn-primary">Add Student</button>
+                    <span class="help-block">Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.</span>
+                </div>
+                <hr>
+
+                <div class="add-course">
+                    <header>
+                        <h4>Add Course</h4>
+                    </header>
+                    <form name="add-course">
+                        <fieldset class="form-group">
+                            <label for="name" class="control-label">Course Name</label>
+                            <input type="text" name="name" class="form-control">
+                        </fieldset>
+                        <div class="controls">
+                            <button type="submit" class="btn btn-success">Create</button>
+                        </div>
+                    </form>
+                </div>
             </section>
         </div>
 
