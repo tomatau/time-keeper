@@ -21,16 +21,14 @@ describe('Add Course', function () {
     });
 
     it('should save a new valid course', inject(function (
-        addCourse
-        ,Courses
-        ,coursesGateway
+        addCourse , Courses , coursesGateway
     ) {
-        var course = { name: "ANG001" };
-        addCourse(course);
+        var validCourse = { name: "ANG001" };
+        addCourse(validCourse);
         // save through gateway
-        expect(coursesGateway.add) .toHaveBeenCalledWith(course)
+        expect(coursesGateway.add) .toHaveBeenCalledWith(validCourse)
 
         // and add to the courses collection
-        expect(Courses.add) .toHaveBeenCalledWith(course)
+        expect(Courses.add) .toHaveBeenCalledWith(validCourse)
     }));
 });
