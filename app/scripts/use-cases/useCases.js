@@ -1,1 +1,3 @@
-angular.module('useCases', []);
+angular.module('useCases', [
+        'models'
+    ]);
