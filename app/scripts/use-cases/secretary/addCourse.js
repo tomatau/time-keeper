@@ -1,8 +1,8 @@
 'use strict';
 angular.module('useCases')
-    .factory('addCourse', function(Courses, courseGateway){
+    .factory('addCourse', function(Courses, coursesGateway){
         return function addCourse(course){
-            courseGateway.add(course);
+            coursesGateway.add(course);
             Courses.add(course);
         };
     });

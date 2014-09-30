@@ -1,7 +1,7 @@
 'use strict';
 angular.module('firebaseGateways')
-    .factory('firebaseCourseGateway', function(){
+    .factory('firebaseCoursesGateway', function(){
         return {
             add: function(){}
-        }
-    })
+        };
+    });
