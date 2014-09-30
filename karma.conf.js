@@ -19,9 +19,15 @@ module.exports = function(config) {
       'app/bower_components/angular/angular.js'
       ,'app/bower_components/angular-mocks/angular-mocks.js'
 
+      // testing libraries
+      ,'node_modules/sinon-browser-only/sinon.js'
+      ,'node_modules/jasmine-sinon/lib/jasmine-sinon.js'
+
       // source files (load folders in order of deps)
+      ,'app/scripts/**/models.js'
       ,'app/scripts/**/useCases.js'
       // glob all the scripts
+      ,'app/scripts/models/*.js'
       ,'app/scripts/use-cases/**/*.js'
 
       // tests
