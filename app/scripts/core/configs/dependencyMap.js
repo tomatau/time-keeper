@@ -1,5 +1,5 @@
 angular.module('core')
-    .value('dependencyMap', {
+    .constant('dependencyMap', {
         gateways: {
             'courseGateway': 'firebaseCourseGateway'
             //e.g. , userGateway: "localStorageUserGateway"
