@@ -24,11 +24,13 @@ module.exports = function(config) {
       ,'node_modules/jasmine-sinon/lib/jasmine-sinon.js'
 
       // source files (load folders in order of deps)
+      ,'app/scripts/**/core.js'
       ,'app/scripts/**/models.js'
       ,'app/scripts/**/firebase/gateway.js'
       ,'app/scripts/**/gateways.js'
       ,'app/scripts/**/useCases.js'
       // glob all the scripts
+      ,'app/scripts/core/**/*.js'
       ,'app/scripts/models/*.js'
       ,'app/scripts/gateways/**/*.js'
       ,'app/scripts/use-cases/**/*.js'

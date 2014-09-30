@@ -1,18 +1,13 @@
+'use strict';
 angular.module('gateways', [
-        'firebaseGateway'
+        'core',
+        'firebaseGateways'
     ])
-    // might wanna move this to "core" or "config"
-    .config(function( $injector, $provide ){
-        var module = angular.module('gateways');
-        var dependencyMap = {
-            'courseGateway': 'firebaseCourseGateway'
-            //e.g. , userGateway: "localStorageUserGateway"
-        };
-        // create a factory for each of the map
-        // use the value from the map as the actual factory
-        angular.forEach(dependencyMap, function(source, target){
-            var inject = function(v){ return v; }
-            inject.$inject = [ source ];
-            $provide.factory(target, inject)
-        })
+    .config(function( dependencyMap, $provide ){
+        // create a factory for each key in dependencyMap
+        angular.forEach(dependencyMap.gateways, function(source, target){
+            var injectFn = function(v){ return v; }
+            injectFn.$inject = [ source ];
+            $provide.factory(target, injectFn)
+        });
     });
