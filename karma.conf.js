@@ -25,9 +25,12 @@ module.exports = function(config) {
 
       // source files (load folders in order of deps)
       ,'app/scripts/**/models.js'
+      ,'app/scripts/**/firebase/gateway.js'
+      ,'app/scripts/**/gateways.js'
       ,'app/scripts/**/useCases.js'
       // glob all the scripts
       ,'app/scripts/models/*.js'
+      ,'app/scripts/gateways/**/*.js'
       ,'app/scripts/use-cases/**/*.js'
 
       // tests

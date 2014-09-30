@@ -1,3 +1,4 @@
 angular.module('useCases', [
-        'models'
+        'models',
+        'gateways'
     ]);

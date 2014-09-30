@@ -4,11 +4,19 @@ describe('Add Course', function () {
         module("useCases")
     );
 
-    beforeEach(
-        module(function($provide){
-            // $provide.factory('Courses', function(){ return CoursesStub; });
+    // stub deps
+    beforeEach(function(){
+        inject(function(Courses){
+            sinon.stub(Courses, "add")
         })
-    );
+    });
+
+    // restore deps
+    afterEach(function () {
+        inject(function(Courses){
+            Courses.add.restore();
+        })
+    });
 
     it('should save a new valid course', inject(function (
         addCourse
@@ -16,7 +24,6 @@ describe('Add Course', function () {
         // ,courseGateway
     ) {
         var course = { name: "ANG001" };
-        sinon.stub(Courses)
         addCourse(course);
         // save through gateway
         // expect(courseGateway.add) .toHaveBeenCalledWith(course)
