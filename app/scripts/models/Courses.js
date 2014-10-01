@@ -4,6 +4,7 @@ angular.module('models')
         var courseList = [];
         return {
             add: function(){},
+            remove: function(){},
             find: function(course){
                 return _.findWhere(courseList, course);
             }

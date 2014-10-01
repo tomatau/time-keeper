@@ -10,8 +10,12 @@ angular.module('useCases')
      */
     .factory('addCourse', function(Courses, coursesGateway){
         return function addCourse(course){
-            coursesGateway.add(course);
+            // generate a course id?
             Courses.add(course);
+            return coursesGateway.add(course)
+                .catch(function(){
+                    Courses.remove(course);
+                });
         };
     })
     ;

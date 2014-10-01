@@ -1,17 +1,20 @@
 describe('Add Course', function () {
+    var def;
 
-    beforeEach(
-        module("useCases")
-    );
+    beforeEach( module("useCases") );
+
     beforeEach(function(){
-        inject(function(Courses, coursesGateway){
+        inject(function(Courses, coursesGateway, $q){
+            def = $q.defer();
             sinon.stub(Courses, "add")
-            sinon.stub(coursesGateway, "add")
+            sinon.stub(Courses, "remove")
+            sinon.stub(coursesGateway, "add").returns(def.promise);
         })
     });
     afterEach(function () {
         inject(function(Courses, coursesGateway){
             Courses.add.restore();
+            Courses.remove.restore();
             coursesGateway.add.restore();
         })
     });
@@ -20,11 +23,24 @@ describe('Add Course', function () {
         addCourse , Courses , coursesGateway
     ) {
         var validCourse = { name: "ANG001" };
-        addCourse(validCourse);
-        // save through gateway
-        expect(coursesGateway.add) .toHaveBeenCalledWith(validCourse)
 
-        // and add to the courses collection
+        addCourse(validCourse);
+
         expect(Courses.add) .toHaveBeenCalledWith(validCourse)
+        expect(coursesGateway.add) .toHaveBeenCalledWith(validCourse)
+    }));
+
+    it('should remove the Course when rejected', inject(function (
+        addCourse , Courses , coursesGateway, $rootScope
+    ) {
+        var validCourse = { name: "ANG001" };
+
+        addCourse(validCourse);
+        def.reject();
+        $rootScope.$digest()
+        
+        expect(Courses.add) .toHaveBeenCalledWith(validCourse)
+        expect(coursesGateway.add) .toHaveBeenCalledWith(validCourse)
+        expect(Courses.remove) .toHaveBeenCalled()
     }));
 });
