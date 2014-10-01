@@ -17,9 +17,11 @@ module.exports = function(config) {
     files: [
       // angular
       'app/bower_components/angular/angular.js'
+      ,'app/bower_components/underscore/underscore.js'
       ,'app/bower_components/angular-mocks/angular-mocks.js'
 
       // testing libraries
+      ,'node_modules/jasmine-expect/dist/jasmine-matchers.js'
       ,'node_modules/sinon-browser-only/sinon.js'
       ,'node_modules/jasmine-sinon/lib/jasmine-sinon.js'
       ,'app/tests/test-helpers.js'

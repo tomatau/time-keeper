@@ -21,6 +21,7 @@
     "gulp-size": "^0.3.0",
     "gulp-uglify": "^0.2.1",
     "gulp-useref": "^0.4.2",
+    "jasmine-expect": "^1.22.2",
     "jasmine-sinon": "^0.3.2",
     "jshint-stylish": "^0.2.0",
     "karma": "^0.12.23",
