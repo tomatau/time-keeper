@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="timekeeper">
     <head>
         <meta charset="utf-8">
         <title>time keeper</title>
@@ -17,24 +17,62 @@
         <!-- endbuild -->
 
     </head>
+    <!-- 
+        submit-text="{{ dash.modal.submitText }}" 
+        submit-fn="dash.modal.action(dash.course)"
+     -->
     <body>
-
-
-
-
+        <div class="container" ng-controller="dashboard as dash">
+            <button ng-click="openModel(dash.modal.id)">Open</button>
+            <tm-modal 
+                ident="{{ dash.modal.id }}" 
+                header="{{ dash.modal.header }}" 
+            >
+                <course-form 
+                    entity="dash.course"
+                    submit-fn="dash.modal.action(dash.course)"
+                ></course-form>
+            </tm-modal>
+        </div>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/angular/angular.js"></script>
         <!-- endbower -->
-        <!-- endbuild -->
-
-        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js"></script>
         <!-- endbuild -->
 
         <!-- build:js scripts/main.js -->
         <script src="scripts/main.js"></script>
+
+        <!-- Core -->
+        <script src="scripts/core/core.js"></script>
+        <script src="scripts/core/configs/dependency-map.js"></script>
+        <script src="scripts/core/directives/modal.js"></script>
+
+        <!-- Models -->
+        <script src="scripts/models/models.js"></script>
+        <script src="scripts/models/Courses.js"></script>
+
+        <!-- Forms -->
+        <script src="scripts/forms/forms.js"></script>
+        <script src="scripts/forms/course-form.js"></script>
+
+        <!-- Gateways -->
+        <script src="scripts/gateways/gateways.js"></script>
+        <script src="scripts/gateways/firebase/gateway.js"></script>
+        <script src="scripts/gateways/firebase/courses-gateway.js"></script>
+
+        <!-- Use Cases -->
+        <script src="scripts/use-cases/use-cases.js"></script>
+        <script src="scripts/use-cases/secretary/add-course.js"></script>
+
+        <!-- Routes -->
+        <script src="scripts/routes/routes.js"></script>
+        <script src="scripts/routes/dashboard/route.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,20 @@
+<form name="courseForm" ng-submit="form.submitFn()" novalidate>
+    <fieldset class="form-group">
+        <input type="hidden" name="courseId" ng-model="form.entity.courseId">
+        <label for="name" class="control-label">Course Name</label>
+        <input type="text" 
+            name="name" 
+            ng-model="form.entity.name" 
+            minlength="4"
+            required
+            class="form-control">
+    </fieldset>
+    <div class="controls">
+        <button type="submit" ng-disabled="courseForm.$invalid" class="btn btn-success">
+            Create
+        </button>
+    </div>
+    <pre>
+        {{ courseForm | json }}
+    </pre>
+</form>

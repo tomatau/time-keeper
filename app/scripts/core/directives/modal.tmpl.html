@@ -1,4 +1,4 @@
-<div class="modal fade {{ modal.id }}" tabindex="-1" role="dialog">
+<div class="modal fade" id="{{ modal.id }}" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header" ng-if="modal.header">
@@ -8,12 +8,12 @@
                 <h4 class="modal-title">{{ modal.header }}</h4>
             </div>
             <div class="modal-body" ng-transclude></div>
-            <div class="modal-footer">
+            <div class="modal-footer" ng-if="modal.buttonText && modal.buttonFn">
                 <button type="button" class="btn btn-default" data-dismiss="modal">
                     Close
                 </button>
-                <button type="button" class="btn btn-primary" ng-click="modal.submitFn()">
-                    {{ modal.submitText }}
+                <button type="button" class="btn btn-primary" ng-click="modal.buttonFn()">
+                    {{ modal.buttonText }}
                 </button>
             </div>
         </div>

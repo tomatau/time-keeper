@@ -1,22 +1,23 @@
+'use strict';
 angular.module('core')
     .factory('openModel', function(){
-        return function(ident){
-            angular.element('.' + ident).modal();
-        }
+        return function(ident){ angular.element('#' + ident).modal(); };
+    })
+    .run(function($rootScope, openModel){
+        $rootScope.openModel = openModel;
     })
     .directive('tmModal', function(COREURL){
         return {
-            templateUrl: COREURL + "/directives/modal.tmpl.html",
-            controllerAs: "modal",
-            bindToController: true,
             transclude: true,
+            templateUrl: COREURL + '/directives/modal.tmpl.html',
             scope: {
-                id: "@ident",
-                header: "@header",
-                submitText: "@submitText",
-                submitFn: "&submitFn",
+                id: '@ident',
+                header: '@header',
+                buttonText: '@buttonText',
+                buttonFn: '&buttonFn'
             },
-            // need this for controllerAs despite bindToController
-            controller: function(){}
-        }
+            bindToController: true,
+            controllerAs: 'modal',
+            controller: function(){},
+        };
     });
