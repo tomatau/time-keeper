@@ -22,6 +22,7 @@ module.exports = function(config) {
       // testing libraries
       ,'node_modules/sinon-browser-only/sinon.js'
       ,'node_modules/jasmine-sinon/lib/jasmine-sinon.js'
+      ,'app/tests/test-helpers.js'
 
       // source files (load folders in order of deps)
       ,'app/scripts/**/core.js'
