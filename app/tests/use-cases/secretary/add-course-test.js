@@ -3,16 +3,12 @@ describe('Add Course', function () {
     beforeEach(
         module("useCases")
     );
-
-    // stub deps
     beforeEach(function(){
         inject(function(Courses, coursesGateway){
             sinon.stub(Courses, "add")
             sinon.stub(coursesGateway, "add")
         })
     });
-
-    // restore deps
     afterEach(function () {
         inject(function(Courses, coursesGateway){
             Courses.add.restore();

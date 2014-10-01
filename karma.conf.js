@@ -26,17 +26,19 @@ module.exports = function(config) {
       // source files (load folders in order of deps)
       ,'app/scripts/**/core.js'
       ,'app/scripts/**/models.js'
+      ,'app/scripts/**/forms.js'
       ,'app/scripts/**/firebase/gateway.js'
       ,'app/scripts/**/gateways.js'
-      ,'app/scripts/**/useCases.js'
+      ,'app/scripts/**/use-cases.js'
       // glob all the scripts
       ,'app/scripts/core/**/*.js'
       ,'app/scripts/models/*.js'
+      ,'app/scripts/forms/*.js'
       ,'app/scripts/gateways/**/*.js'
       ,'app/scripts/use-cases/**/*.js'
 
       // tests
-      ,'app/tests/**/*Test.js'
+      ,'app/tests/**/*-test.js'
     ],
 
 
