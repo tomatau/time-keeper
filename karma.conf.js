@@ -16,9 +16,11 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // angular
-      'app/bower_components/angular/angular.js'
+      'app/bower_components/jquery/dist/jquery.js'
+      ,'app/bower_components/angular/angular.js'
       ,'app/bower_components/underscore/underscore.js'
       ,'app/bower_components/angular-mocks/angular-mocks.js'
+      ,'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js'
 
       // testing libraries
       ,'node_modules/jasmine-expect/dist/jasmine-matchers.js'
@@ -42,6 +44,8 @@ module.exports = function(config) {
 
       // tests
       ,'app/tests/**/*-test.js'
+      // tmplates
+      ,'app/scripts/**/*.html'
     ],
 
 
@@ -53,8 +57,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'app/scripts/**/*.html': 'html2js'
     },
-
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/',
+      moduleName: 'tmpls'
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
