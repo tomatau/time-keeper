@@ -1,14 +1,14 @@
 'use strict';
 angular.module('routes')
-    .controller('dashboard', function($scope, addCourse){
-        this.modal = {
+    .controller('dashboard', function($scope, addCourse, closeModal){
+        var modal = {
             id: 'create-course-modal',
             header: 'Create Course',
             submitText: 'Create',
-            action: addCourse
+            action: function(course){
+                addCourse(course).then(function(){ closeModal(modal.id); });
+            }
         };
-        this.course = {
-            id: 123
-        };
+        this.modal = modal;
     })
 ;
