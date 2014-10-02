@@ -19,6 +19,12 @@ describe('Add Course', function () {
         })
     });
 
+    it('should return a promise', inject(function (
+        addCourse, $q
+    ) {
+        expect(addCourse()).toImplement($q.defer().promise)
+    }));
+
     it('should save a new valid course', inject(function (
         addCourse , Courses , coursesGateway
     ) {
