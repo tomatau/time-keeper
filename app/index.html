@@ -23,9 +23,9 @@
      -->
     <body>
         <div class="container" ng-controller="dashboard as dash">
-            <button ng-click="openModel(dash.modal.id)">Open</button>
+            <button ng-click="openModal(dash.modal.id)">Open</button>
             <tm-modal 
-                ident="{{ dash.modal.id }}" 
+                ident="dash.modal.id" 
                 header="{{ dash.modal.header }}" 
             >
                 <course-form 
