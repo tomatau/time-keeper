@@ -3,7 +3,7 @@ angular.module('models')
     .factory('Courses', function(){
         var courseList = [];
         return {
-            get: function(){
+            get: function(){ // also get by specific ID
                 return courseList;
             },
             set: function(newList){
