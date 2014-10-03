@@ -37,6 +37,7 @@ module.exports = function(config) {
       ,'app/scripts/**/indexeddb/gateway.js'
       ,'app/scripts/**/gateways.js'
       ,'app/scripts/**/use-cases.js'
+      ,'app/scripts/dependency-map.js'
       // glob all the scripts
       ,'app/scripts/core/**/*.js'
       ,'app/scripts/models/*.js'
