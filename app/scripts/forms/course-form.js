@@ -15,9 +15,7 @@ angular.module('forms')
                 scope.courseForm.name.$validators
                     .courseNameAvailable = function(modelValue){
                         var entityId = (ctrl.entity != null) && ctrl.entity.id,
-                            courseWithName = Courses.find(
-                                angular.extend({}, { name: modelValue })
-                            );
+                            courseWithName = Courses.find( { name: modelValue } );
                         return ( ( courseWithName != null ) && 
                             ( entityId !== courseWithName.id ) )
                             ? false : true;

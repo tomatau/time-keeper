@@ -46,6 +46,9 @@ describe('Course Form Test', function () {
             rootElement.find('input[name=id]').val()
         ).toBe( currentScope.entity.id );
         expect(
+            rootElement.find('input[name=id]').attr('disabled')
+        ).toBe('disabled');
+        expect(
             rootElement.find('input[name=name]').val()
         ).toBe( currentScope.entity.name );
     });
@@ -61,7 +64,7 @@ describe('Course Form Test', function () {
             html.attr('entity', 'entity');
         });
 
-        it('should be invalid when less than 4', function () {
+        it('should be invalid when name is less than 4 chars', function () {
             compileDir();
             formCtrl = compiledDir.data().$isolateScope.courseForm;
 
@@ -76,7 +79,7 @@ describe('Course Form Test', function () {
             ).toBeUndefined();
         });
 
-        describe('More than 4 characters', function () {
+        describe('Name with more than 4 characters', function () {
             var courseNameAvailable,
                 findReturn;
 
@@ -91,7 +94,7 @@ describe('Course Form Test', function () {
                 };
             });
 
-            it('should be invalid when name exists', inject(function (Courses) {
+            it('should be invalid when name already exists', inject(function (Courses) {
                 compileDir();
                 sinon.stub(Courses, "find").returns(findReturn);
                 formCtrl = compiledDir.data().$isolateScope.courseForm;
@@ -136,7 +139,7 @@ describe('Course Form Test', function () {
             }));
 
             describe('Valid Name', function () {
-                iit('should perform submitFn when submitted', inject(function (Courses) {
+                it('should perform submitFn when submitted', inject(function (Courses) {
                     html.attr('submit-fn', 'entity.id = "result"');
                     expect( currentScope.entity.id ).not.toEqual('result');
                     compileDir();
