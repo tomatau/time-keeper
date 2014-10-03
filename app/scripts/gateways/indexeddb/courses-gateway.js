@@ -1,6 +1,6 @@
 'use strict';
-angular.module('indexdbGateways')
-    .factory('indexdbCoursesGateway', function($q){
+angular.module('indexeddbGateways')
+    .factory('indexeddbCoursesGateway', function($q){
         return {
             add: function(){
                 var d = $q.defer();

@@ -34,6 +34,7 @@ module.exports = function(config) {
       ,'app/scripts/**/models.js'
       ,'app/scripts/**/forms.js'
       ,'app/scripts/**/firebase/gateway.js'
+      ,'app/scripts/**/indexeddb/gateway.js'
       ,'app/scripts/**/gateways.js'
       ,'app/scripts/**/use-cases.js'
       // glob all the scripts

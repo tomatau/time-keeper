@@ -1,5 +1,5 @@
 'use strict';
-angular.module('indexdbGateways', [ ])
+angular.module('indexeddbGateways', [ ])
     .factory('timeKeeperGateway', function(){
         return {};
     });

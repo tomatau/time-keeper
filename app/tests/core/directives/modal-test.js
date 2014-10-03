@@ -58,7 +58,7 @@ describe('Core Modal Test', function () {
         describe('Minimum Attribute Requirements', function () {
             beforeEach(function () {
                 currentScope.testId = "test-id";
-                html.attr('ident', 'testId');
+                html.attr('ident', '{{ testId }}');
             });
             it('should add id-attr to the root element of view', inject(function(){
                 compileDir();
