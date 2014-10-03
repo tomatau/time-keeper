@@ -1,4 +1,5 @@
 angular.module('useCases', [
+        'config',
         'core',
         'models',
         'gateways'
