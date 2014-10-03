@@ -37,7 +37,7 @@ describe('Course Form Test', function () {
             id: "test-id",
             name: "test-name",
         };
-        html.attr('entity', 'entity')
+        html.attr('entity', 'entity');
 
         compileDir();
         rootElement = compiledDir.find('form');
@@ -78,15 +78,16 @@ describe('Course Form Test', function () {
 
         describe('More than 4 characters', function () {
             var courseNameAvailable,
-                findReturn = {
-                    id: 'different-id',
-                    name: "valid-name"
-                };
+                findReturn;
 
             beforeEach(function () {
                 currentScope.entity = {
-                    id: "test-id",
+                    id: "entity-id",
                     name: "valid-name",
+                };
+                findReturn = {
+                    id: 'different-id',
+                    name: "valid-name"
                 };
             });
 
@@ -119,14 +120,31 @@ describe('Course Form Test', function () {
                 });
             }));
 
-            xit('should be valid when name exists on entity id', function () {
-                
-            });
+            it('should be valid when name exists on entity id', inject(function (Courses) {
+                findReturn.id = 'entity-id';
+                compileDir();
+                sinon.stub(Courses, "find").returns(findReturn);
+                formCtrl = compiledDir.data().$isolateScope.courseForm;
+                courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
+
+                expect(
+                    courseNameAvailable(currentScope.entity.name)
+                ).toBe(true);
+                expect(Courses.find).toHaveBeenCalledWith({
+                    name: currentScope.entity.name
+                });
+            }));
 
             describe('Valid Name', function () {
-                xit('should perform submitFn when submitted', function () {
+                iit('should perform submitFn when submitted', inject(function (Courses) {
+                    html.attr('submit-fn', 'entity.id = "result"');
+                    expect( currentScope.entity.id ).not.toEqual('result');
+                    compileDir();
+
+                    compiledDir.find('[type=submit]').click();
                     
-                });
+                    expect( currentScope.entity.id ).toEqual('result');
+                }));
             });
         });
     });
