@@ -21,6 +21,7 @@ module.exports = function(config) {
       ,'app/bower_components/underscore/underscore.js'
       ,'app/bower_components/angular-mocks/angular-mocks.js'
       ,'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js'
+      ,'app/bower_components/idbwrapper/idbstore.js'
 
       // testing libraries
       ,'node_modules/jasmine-expect/dist/jasmine-matchers.js'
