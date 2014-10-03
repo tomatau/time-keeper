@@ -93,6 +93,10 @@ describe('Core Modal Test', function () {
             });
         });
 
+        // also test it's a modal
+        // test transclusion position
+        // 
+
 
         function compileDir() {
             compiledDir = $$compile(html)(currentScope);
