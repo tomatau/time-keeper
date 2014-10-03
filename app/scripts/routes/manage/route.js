@@ -3,8 +3,8 @@ angular.module('routes')
     .config(function($stateProvider, ROUTESURL){
         $stateProvider
             .state('manage', {
-                url: "/manage",
-                templateUrl: ROUTESURL + "manage/manage.tmpl.html",
+                url: '/manage',
+                templateUrl: ROUTESURL + 'manage/manage.tmpl.html',
                 controller: 'manage',
                 controllerAs: 'manage'
             });

@@ -1,3 +1,4 @@
+'use strict';
 angular.module('routes', [
         'core',
         'models',
@@ -7,5 +8,5 @@ angular.module('routes', [
     ])
     .constant('ROUTESURL', 'scripts/routes/')
     .config(function($urlRouterProvider){
-        $urlRouterProvider.otherwise("/");
+        $urlRouterProvider.otherwise('/');
     });
