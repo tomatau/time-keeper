@@ -22,38 +22,32 @@
         submit-fn="dash.modal.action(dash.course)"
      -->
     <body>
-        <div class="container" ng-controller="dashboard as dash">
+        <div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right">
-                    <li class="active"><a ui-sref="dashboard">Dash</a></li>
-                    <li><a ui-sref="week">Week</a></li>
-                    <li><a ui-sref="students">Students</a></li>
-                    <li><a ui-sref="manage">Manage</a></li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="dashboard">Dash</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="week">Week</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="students">Students</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="manage">Manage</a>
+                    </li>
                 </ul>
                 <h3 class="text-muted">time keeper</h3>
             </div>
 
-            <main ui-view>
-                
-            </main>
 <!--             <div class="subnav">
                 <ul class="list-inline">
                     <li><a href="#">Add</a></li>
                     <li><a href="#">Archive</a></li>
                 </ul>
             </div> -->
-            <!-- 
-            <button ng-click="openModal(dash.modal.id)">Open</button>
-            <tm-modal 
-                ident="dash.modal.id" 
-                header="{{ dash.modal.header }}" 
-            >
-                <course-form 
-                    entity="dash.course"
-                    submit-fn="dash.modal.action(dash.course)"
-                ></course-form>
-            </tm-modal>
-             -->
+            <main ui-view></main>
         </div>
 
         <!-- build:js scripts/vendor.js -->
@@ -95,6 +89,9 @@
         <!-- Routes -->
         <script src="scripts/routes/routes.js"></script>
         <script src="scripts/routes/dashboard/route.js"></script>
+        <script src="scripts/routes/week/route.js"></script>
+        <script src="scripts/routes/students/route.js"></script>
+        <script src="scripts/routes/manage/route.js"></script>
 
         <!-- endbuild -->
 </body>

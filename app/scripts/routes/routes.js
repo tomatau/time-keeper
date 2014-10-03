@@ -4,4 +4,8 @@ angular.module('routes', [
         'forms',
         'useCases',
         'ui.router'
-    ]);
+    ])
+    .constant('ROUTESURL', 'scripts/routes/')
+    .config(function($urlRouterProvider){
+        $urlRouterProvider.otherwise("/");
+    });

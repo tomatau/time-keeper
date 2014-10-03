@@ -1,10 +1,12 @@
 'use strict';
 angular.module('routes')
-    .config(function($stateProvider){
+    .config(function($stateProvider, ROUTESURL){
         $stateProvider
             .state('dashboard', {
-              url: "/",
-              template: "HAI"
+                url: "/",
+                templateUrl: ROUTESURL + "dashboard/dash.tmpl.html",
+                controller: 'dashboard',
+                controllerAs: 'dash'
             });
     })
     .controller('dashboard', function($scope, addCourse, closeModal){
