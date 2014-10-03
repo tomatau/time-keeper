@@ -1,1 +1,28 @@
-everything to manage stuff
+<section class="manage">
+    <header>
+        <h4>Manage Students</h4>
+    </header>
+    <div class="manage-controls">
+        <button type="button" ng-click="openModal(manage.addModalId)" class="btn btn-primary">Add Course</button>
+        <span class="help-block">Add a course that students can belong to. Students can only be in one course at one time; if the student is enrolled for 2 courses, create two students.</span>
+        <button type="button" class="btn btn-primary">Add Student</button>
+        <span class="help-block">Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.</span>
+    </div>
+    <hr>
+    <h5>Course List</h5>
+    <ul>
+        <li ng-if="manage.courseList.length == 0">No course (ಠ_ಠ)</li>
+        <li ng-repeat="c in manage.courseList">
+            {{ c.name }}
+        </li>
+    </ul>
+</section>
+<tm-modal 
+    ident="{{ manage.addModalId }}" 
+    header="Create Course" 
+>
+    <course-form 
+        entity="manage.course"
+        submit-fn="manage.modalAction(manage.course)"
+    ></course-form>
+</tm-modal>

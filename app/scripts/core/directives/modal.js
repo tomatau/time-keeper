@@ -19,7 +19,7 @@ angular.module('core')
             transclude: true,
             templateUrl: COREURL + 'directives/modal.tmpl.html',
             scope: {
-                id: '=ident',
+                id: '@ident',
                 header: '@header',
                 buttonText: '@buttonText',
                 buttonFn: '&buttonFn'

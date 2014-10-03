@@ -3,7 +3,7 @@ angular.module('routes')
     .config(function($stateProvider, ROUTESURL){
         $stateProvider
             .state('students', {
-                url: "/",
+                url: "/students",
                 templateUrl: ROUTESURL + "students/students.tmpl.html",
                 controller: 'students',
                 controllerAs: 'students'
