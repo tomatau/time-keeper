@@ -7,6 +7,12 @@ angular.module('routes', [
         'ui.router'
     ])
     .constant('ROUTESURL', 'scripts/routes/')
+    .constant('URLMAP', {
+        'dashboard' : '/',
+        'manage'    : '/manage',
+        'students'  : '/students',
+        'week'      : '/week',
+    })
     .config(function($urlRouterProvider){
         $urlRouterProvider.otherwise('/');
     });

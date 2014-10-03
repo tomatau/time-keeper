@@ -1,9 +1,9 @@
 'use strict';
 angular.module('routes')
-    .config(function($stateProvider, ROUTESURL){
+    .config(function($stateProvider, ROUTESURL, URLMAP){
         $stateProvider
             .state('manage', {
-                url: '/manage',
+                url: URLMAP.manage,
                 templateUrl: ROUTESURL + 'manage/manage.tmpl.html',
                 controller: 'manage',
                 controllerAs: 'manage'

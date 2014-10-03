@@ -1,9 +1,9 @@
 'use strict';
 angular.module('routes')
-    .config(function($stateProvider, ROUTESURL){
+    .config(function($stateProvider, ROUTESURL, URLMAP){
         $stateProvider
             .state('dashboard', {
-                url: '/',
+                url: URLMAP.dashboard,
                 templateUrl: ROUTESURL + 'dashboard/dash.tmpl.html',
                 controller: 'dashboard',
                 controllerAs: 'dash'

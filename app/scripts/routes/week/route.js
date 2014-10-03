@@ -1,9 +1,9 @@
 'use strict';
 angular.module('routes')
-    .config(function($stateProvider, ROUTESURL){
+    .config(function($stateProvider, ROUTESURL, URLMAP){
         $stateProvider
             .state('week', {
-                url: '/week',
+                url: URLMAP.week,
                 templateUrl: ROUTESURL + 'week/week.tmpl.html',
                 controller: 'week',
                 controllerAs: 'week'
