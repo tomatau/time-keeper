@@ -9,6 +9,10 @@ angular.module('routes')
                 addCourse(course).then(function(){ closeModal(modal.id); });
             }
         };
+        this.course = {
+            id: 'test-id',
+            name: 'test-name',
+        };
         this.modal = modal;
     })
 ;
