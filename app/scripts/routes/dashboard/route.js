@@ -1,5 +1,12 @@
 'use strict';
 angular.module('routes')
+    .config(function($stateProvider){
+        $stateProvider
+            .state('dashboard', {
+              url: "/",
+              template: "HAI"
+            });
+    })
     .controller('dashboard', function($scope, addCourse, closeModal){
         var modal = {
             id: 'create-course-modal',

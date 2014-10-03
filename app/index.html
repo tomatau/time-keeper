@@ -23,6 +23,26 @@
      -->
     <body>
         <div class="container" ng-controller="dashboard as dash">
+            <div class="header">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a ui-sref="dashboard">Dash</a></li>
+                    <li><a ui-sref="week">Week</a></li>
+                    <li><a ui-sref="students">Students</a></li>
+                    <li><a ui-sref="manage">Manage</a></li>
+                </ul>
+                <h3 class="text-muted">time keeper</h3>
+            </div>
+
+            <main ui-view>
+                
+            </main>
+<!--             <div class="subnav">
+                <ul class="list-inline">
+                    <li><a href="#">Add</a></li>
+                    <li><a href="#">Archive</a></li>
+                </ul>
+            </div> -->
+            <!-- 
             <button ng-click="openModal(dash.modal.id)">Open</button>
             <tm-modal 
                 ident="dash.modal.id" 
@@ -33,6 +53,7 @@
                     submit-fn="dash.modal.action(dash.course)"
                 ></course-form>
             </tm-modal>
+             -->
         </div>
 
         <!-- build:js scripts/vendor.js -->
