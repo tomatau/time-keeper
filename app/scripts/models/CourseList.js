@@ -1,6 +1,6 @@
 'use strict';
 angular.module('models')
-    .factory('Courses', function(){
+    .factory('CourseList', function(){
         var courseList = [];
         return {
             get: function(){ // also get by specific ID

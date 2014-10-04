@@ -9,9 +9,9 @@ angular.module('routes')
                 controllerAs: 'manage'
             });
     })
-    .controller('manageCtrl', function(Courses){
+    .controller('manageCtrl', function(CourseList){
         var vm = this;
-        vm.courseList = Courses.get();
+        vm.courseList = CourseList.get();
     })
     .controller('addCourseCtrl', function(addCourse, closeModal){
         var vm = this;

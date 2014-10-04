@@ -8,13 +8,13 @@ angular.module('useCases')
      * but may be called from another location such as... i dunno
      * when not called from a form, this should handle the validation
      */
-    .factory('addCourse', function(Courses, coursesGateway){
+    .factory('addCourse', function(CourseList, coursesGateway){
         return function addCourse(course){
             // generate a course id?
-            Courses.add(course);
+            CourseList.add(course);
             return coursesGateway.add(course)
                 .catch(function(){
-                    Courses.remove(course);
+                    CourseList.remove(course);
                 });
         };
     })

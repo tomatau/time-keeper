@@ -1,6 +1,6 @@
 'use strict';
 angular.module('forms')
-    .directive('courseForm', function(FORMSURL, Courses){
+    .directive('courseForm', function(FORMSURL, CourseList){
         return {
             templateUrl: FORMSURL + 'course-form.tmpl.html',
             scope: {
@@ -15,7 +15,7 @@ angular.module('forms')
                 scope.courseForm.name.$validators
                     .courseNameAvailable = function(modelValue){
                         var entityId = (ctrl.entity != null) && ctrl.entity.id,
-                            courseWithName = Courses.find( { name: modelValue } );
+                            courseWithName = CourseList.find( { name: modelValue } );
                         return ( ( courseWithName != null ) && 
                             ( entityId !== courseWithName.id ) )
                             ? false : true;

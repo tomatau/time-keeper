@@ -94,23 +94,23 @@ describe('Course Form Test', function () {
                 };
             });
 
-            it('should be invalid when name already exists', inject(function (Courses) {
+            it('should be invalid when name already exists', inject(function (CourseList) {
                 compileDir();
-                sinon.stub(Courses, "find").returns(findReturn);
+                sinon.stub(CourseList, "find").returns(findReturn);
                 formCtrl = compiledDir.data().$isolateScope.courseForm;
                 courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
 
                 expect(
                     courseNameAvailable(currentScope.entity.name)
                 ).toBe(false);
-                expect(Courses.find).toHaveBeenCalledWith({
+                expect(CourseList.find).toHaveBeenCalledWith({
                     name: currentScope.entity.name
                 });
             }));
 
-            it('should be valid when a unique name', inject(function (Courses) {
+            it('should be valid when a unique name', inject(function (CourseList) {
                 findReturn = undefined;
-                sinon.stub(Courses, "find").returns(findReturn);
+                sinon.stub(CourseList, "find").returns(findReturn);
                 compileDir();
                 formCtrl = compiledDir.data().$isolateScope.courseForm;
                 courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
@@ -118,28 +118,28 @@ describe('Course Form Test', function () {
                 expect(
                     courseNameAvailable(currentScope.entity.name)
                 ).toBe(true);
-                expect(Courses.find).toHaveBeenCalledWith({
+                expect(CourseList.find).toHaveBeenCalledWith({
                     name: currentScope.entity.name
                 });
             }));
 
-            it('should be valid when name exists on entity id', inject(function (Courses) {
+            it('should be valid when name exists on entity id', inject(function (CourseList) {
                 findReturn.id = 'entity-id';
                 compileDir();
-                sinon.stub(Courses, "find").returns(findReturn);
+                sinon.stub(CourseList, "find").returns(findReturn);
                 formCtrl = compiledDir.data().$isolateScope.courseForm;
                 courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
 
                 expect(
                     courseNameAvailable(currentScope.entity.name)
                 ).toBe(true);
-                expect(Courses.find).toHaveBeenCalledWith({
+                expect(CourseList.find).toHaveBeenCalledWith({
                     name: currentScope.entity.name
                 });
             }));
 
             describe('Valid Name', function () {
-                it('should perform submitFn when submitted', inject(function (Courses) {
+                it('should perform submitFn when submitted', inject(function (CourseList) {
                     html.attr('submit-fn', 'entity.id = "result"');
                     expect( currentScope.entity.id ).not.toEqual('result');
                     compileDir();

@@ -4,17 +4,17 @@ describe('Add Course', function () {
     beforeEach( module("useCases") );
 
     beforeEach(function(){
-        inject(function(Courses, coursesGateway, $q){
+        inject(function(CourseList, coursesGateway, $q){
             def = $q.defer();
-            sinon.stub(Courses, "add")
-            sinon.stub(Courses, "remove")
+            sinon.stub(CourseList, "add")
+            sinon.stub(CourseList, "remove")
             sinon.stub(coursesGateway, "add").returns(def.promise);
         })
     });
     afterEach(function () {
-        inject(function(Courses, coursesGateway){
-            Courses.add.restore();
-            Courses.remove.restore();
+        inject(function(CourseList, coursesGateway){
+            CourseList.add.restore();
+            CourseList.remove.restore();
             coursesGateway.add.restore();
         })
     });
@@ -26,18 +26,18 @@ describe('Add Course', function () {
     }));
 
     it('should save a new valid course', inject(function (
-        addCourse , Courses , coursesGateway
+        addCourse , CourseList , coursesGateway
     ) {
         var validCourse = { name: "ANG001" };
 
         addCourse(validCourse);
 
-        expect(Courses.add) .toHaveBeenCalledWith(validCourse)
+        expect(CourseList.add) .toHaveBeenCalledWith(validCourse)
         expect(coursesGateway.add) .toHaveBeenCalledWith(validCourse)
     }));
 
     it('should remove the Course when rejected', inject(function (
-        addCourse , Courses , coursesGateway, $rootScope
+        addCourse , CourseList , coursesGateway, $rootScope
     ) {
         var validCourse = { name: "ANG001" };
 
@@ -45,8 +45,8 @@ describe('Add Course', function () {
         def.reject();
         $rootScope.$digest()
         
-        expect(Courses.add) .toHaveBeenCalledWith(validCourse)
+        expect(CourseList.add) .toHaveBeenCalledWith(validCourse)
         expect(coursesGateway.add) .toHaveBeenCalledWith(validCourse)
-        expect(Courses.remove) .toHaveBeenCalled()
+        expect(CourseList.remove) .toHaveBeenCalled()
     }));
 });
