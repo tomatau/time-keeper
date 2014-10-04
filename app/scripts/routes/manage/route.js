@@ -5,24 +5,27 @@ angular.module('routes')
             .state('manage', {
                 url: URLMAP.manage,
                 templateUrl: ROUTESURL + 'manage/manage.tmpl.html',
-                controller: 'manage',
+                controller: 'manageCtrl',
                 controllerAs: 'manage'
             });
     })
-    .controller('manage', function(addCourse, closeModal, Courses){
-        var m = this;
-        m.addModalId = 'create-course-modal';
-        m.courseList = Courses.get();
-        m.course = {};
-        m.modalAction = function modalAction(){
-            addCourse(angular.copy(m.course))
+    .controller('manageCtrl', function(Courses){
+        var vm = this;
+        vm.courseList = Courses.get();
+    })
+    .controller('addCourseCtrl', function(addCourse, closeModal){
+        var vm = this;
+        // could use a Course model
+        vm.course = {};
+        vm.addModalId = 'create-course-modal';
+        vm.modalAction = function modalAction(){
+            // use case to make a copy?
+            // gateways can make copies of things when creating id
+            addCourse(angular.copy(vm.course))
                 .then(function(){
-                    closeModal(m.addModalId);
-                    m.course = {};
+                    closeModal(vm.addModalId);
+                    // using Course can remove the vm and call reset
+                    vm.course = {};
                 });
         };
-    })
-    .controller('addCourseModal', function(){
-
-    })
-;
+    });
