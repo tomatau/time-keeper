@@ -10,7 +10,7 @@ angular.module('useCases')
      */
     .factory('addCourse', function(CourseList, coursesGateway){
         return function addCourse(course){
-            return coursesGateway.add(course)
+            return coursesGateway.save(course)
                 .then(function(savedCourse){
                     CourseList.add(savedCourse);
                 });

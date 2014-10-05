@@ -5,7 +5,7 @@ angular.module('indexeddbGateways')
             storeName: 'Courses'
         });
         return {
-            add: function(course){
+            save: function(course){
                 var d = $q.defer();
                 course = angular.copy(course);
                 coursesStore.put( course,
