@@ -4,18 +4,16 @@ describe('Add Course', function () {
     beforeEach( module('useCases') );
 
     beforeEach(function(){
+        module(function($provide){
+            $provide.value('coursesGateway', {
+                save: sinon.spy(function(){
+                    return def.promise;
+                })
+            });
+            $provide.value('CourseList', { add: sinon.spy() });
+        });
         inject(function(CourseList, coursesGateway, $q){
             def = $q.defer();
-            sinon.stub(CourseList, 'add')
-            // sinon.stub(CourseList, 'remove')
-            sinon.stub(coursesGateway, 'save').returns(def.promise);
-        });
-    });
-    afterEach(function () {
-        inject(function(CourseList, coursesGateway){
-            CourseList.add.restore();
-            // CourseList.remove.restore();
-            coursesGateway.save.restore();
         });
     });
 

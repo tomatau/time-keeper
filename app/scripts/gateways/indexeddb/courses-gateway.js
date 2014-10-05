@@ -1,9 +1,7 @@
 'use strict';
 angular.module('indexeddbGateways')
-    .factory('indexeddbCoursesGateway', function($q, timeKeeperGateway){
-        var coursesStore = timeKeeperGateway({
-            storeName: 'Courses'
-        });
+    .factory('indexeddbCoursesGateway', function($q, idbGateway){
+        var coursesStore = idbGateway('Courses');
         return {
             save: function(course){
                 var d = $q.defer();

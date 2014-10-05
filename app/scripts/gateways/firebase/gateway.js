@@ -1,6 +1,6 @@
 'use strict';
 angular.module('firebaseGateways', [ ])
-    .factory('timeKeeperGateway', function(){
+    .factory('firebaseGateway', function(){
         // firebaseRef
         return {};
     });

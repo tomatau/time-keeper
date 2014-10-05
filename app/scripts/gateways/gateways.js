@@ -1,6 +1,7 @@
 'use strict';
 angular.module('gateways', [
         'config',
+        // 'firebaseGateways',
         'indexeddbGateways'
     ])
     .config(function( dependencyMap, $provide ){
