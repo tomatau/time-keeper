@@ -32,7 +32,7 @@ describe('IndexedDB Gateway', function () {
         }, "return equals store Return", 20);
     }));
 
-    xit('should pass the storeName to IDBStore', inject(function(idbGateway) {
+    it('should pass the storeName to IDBStore', inject(function(idbGateway) {
         var store = idbGateway('test'),
             storeOptions = IDBStore.firstCall.args[0];
         expect(storeOptions.storeName).toBe('test');
