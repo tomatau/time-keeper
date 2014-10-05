@@ -6,7 +6,12 @@ angular.module('routes')
                 url: URLMAP.manage,
                 templateUrl: ROUTESURL + 'manage/manage.tmpl.html',
                 controller: 'manageCtrl',
-                controllerAs: 'manage'
+                controllerAs: 'manage',
+                resolve: {
+                    cl: function(syncCourseList){
+                        return syncCourseList();
+                    }
+                }
             });
     })
     .controller('manageCtrl', function(CourseList){
