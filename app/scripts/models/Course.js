@@ -4,6 +4,10 @@
         this.data = {};
     }
 
+    Course.prototype.set = function(course){
+        angular.extend(this.data, course);
+    };
+
     Course.prototype.get = function(prop) {
         if (prop == null) return this.data;
         return this.data[prop];
@@ -16,5 +20,4 @@
 
     angular.module('models')
         .service('Course', Course);
-
 })();

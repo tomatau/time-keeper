@@ -1,4 +1,4 @@
-describe('Course Model', function () {
+describe('CourseList Model', function () {
     var courseList = [
         { id: 123, name: 'TEST001' },
         { id: 321, name: 'TSET001' },
