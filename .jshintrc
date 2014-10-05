@@ -20,6 +20,6 @@
     "smarttabs": true,
     "laxbreak": true,
     "laxcomma": true,
-    "predef": ["angular", "_"],
+    "predef": ["angular", "_", "IDBStore"],
     "jquery": true
 }

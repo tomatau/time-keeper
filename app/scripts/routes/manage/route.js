@@ -13,19 +13,15 @@ angular.module('routes')
         var vm = this;
         vm.courseList = CourseList.get();
     })
-    .controller('addCourseCtrl', function(addCourse, closeModal){
+    .controller('addCourseCtrl', function(Course, addCourse, closeModal){
         var vm = this;
-        // could use a Course model
-        vm.course = {};
+        vm.course = Course.get();
         vm.addModalId = 'create-course-modal';
         vm.modalAction = function modalAction(){
-            // use case to make a copy?
-            // gateways can make copies of things when creating id
-            addCourse(angular.copy(vm.course))
+            addCourse(vm.course)
                 .then(function(){
                     closeModal(vm.addModalId);
-                    // using Course can remove the vm and call reset
-                    vm.course = {};
+                    Course.reset();
                 });
         };
     });

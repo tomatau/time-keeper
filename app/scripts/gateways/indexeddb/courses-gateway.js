@@ -1,10 +1,15 @@
 'use strict';
 angular.module('indexeddbGateways')
-    .factory('indexeddbCoursesGateway', function($q){
+    .factory('indexeddbCoursesGateway', function($q, timeKeeperGateway){
         return {
-            add: function(){
+            add: function(course){
+                course = angular.copy(course);
                 var d = $q.defer();
-                d.resolve();
+                timeKeeperGateway.put( course,
+                    function success(id){
+                        d.resolve(angular.extend(course, { id: id }));
+                    }
+                );
                 return d.promise;
             }
         };

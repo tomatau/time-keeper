@@ -1,7 +1,7 @@
 'use strict';
 angular.module('gateways', [
         'config',
-        'firebaseGateways'
+        'indexeddbGateways'
     ])
     .config(function( dependencyMap, $provide ){
         // create a factory for each gateway in dependencyMap
