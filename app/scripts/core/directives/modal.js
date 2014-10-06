@@ -22,7 +22,8 @@ angular.module('core')
                 id: '@ident',
                 header: '@header',
                 buttonText: '@buttonText',
-                buttonFn: '&buttonFn'
+                buttonFn: '&buttonFn',
+                classes: '@'
             },
             bindToController: true,
             controllerAs: 'modal',
