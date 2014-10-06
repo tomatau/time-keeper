@@ -8,14 +8,14 @@
     <span class="help-block">Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.</span>
     <tm-modal 
         ident="{{ aS.addModalId }}" 
-        header="Create Student" 
-        classes=""
+        header="Create Student"
+        focus-el="#student-name"
     >
         <form name="add-student" class="">
             <div class="row">
                 <fieldset class="form-group col-sm-6 required">
                     <label for="name" class="control-label">Name</label>
-                    <input type="text" name="name" required class="form-control">
+                    <input type="text" name="name" id="student-name" required class="form-control">
                 </fieldset>
                 <fieldset class="form-group col-sm-6 required">
                     <label for="email" class="control-label">Email</label>

@@ -42,7 +42,7 @@ angular.module('routes')
                 });
         };
     })
-    .controller('addStudentCtrl', function(){
+    .controller('addStudentCtrl', function($scope){
         var vm = this
         vm.addModalId = 'create-student-modal';
 
