@@ -2,14 +2,26 @@
 angular.module('routes')
     .config(function($stateProvider, ROUTESURL, URLMAP){
         $stateProvider
-            .state('manage', {
-                url: URLMAP.manage,
+            .state('manageLayout', {
+                abstract: true,
                 templateUrl: ROUTESURL + 'manage/manage.tmpl.html',
                 controller: 'manageCtrl',
                 controllerAs: 'manage',
                 resolve: {
                     cl: function(syncCourseList){
                         return syncCourseList();
+                    }
+                }
+            })
+            .state('manage', {
+                url: URLMAP.manage,
+                parent: 'manageLayout',
+                views: {
+                    addCourse: {
+                        templateUrl: ROUTESURL + 'manage/add-course.tmpl.html',
+                    },
+                    addStudent: {
+                        templateUrl: ROUTESURL + 'manage/add-student.tmpl.html'
                     }
                 }
             });
@@ -29,4 +41,9 @@ angular.module('routes')
                     Course.reset();
                 });
         };
+    })
+    .controller('addStudentCtrl', function(){
+        var vm = this
+        vm.addModalId = 'create-student-modal';
+
     });

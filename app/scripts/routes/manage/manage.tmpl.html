@@ -4,24 +4,8 @@
     </header>
     <div class="manage-controls">
         <!-- ng Include this -->
-        <div class="add-course" ng-controller="addCourseCtrl as aC">
-            <button type="button" ng-click="openModal(aC.addModalId)" class="btn btn-primary">Add Course</button>
-            <span class="help-block">Add a course that students can belong to. Students can only be in one course at one time; if the student is enrolled for 2 courses, create two students.</span>
-            <tm-modal 
-                ident="{{ aC.addModalId }}" 
-                header="Create Course" 
-            >
-                <course-form 
-                    entity="aC.course"
-                    submit-fn="aC.modalAction(aC.course)"
-                ></course-form>
-            </tm-modal>
-        </div>
-        <!-- ng Include this too -->
-        <div class="add-student">
-            <button type="button" class="btn btn-primary">Add Student</button>
-            <span class="help-block">Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.</span>
-        </div>
+        <div ui-view="addCourse"></div>
+        <div ui-view="addStudent"></div>
     </div>
     <hr>
     <h5>Course List</h5>

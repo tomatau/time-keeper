@@ -1,0 +1,89 @@
+<div class="add-sudent" ng-controller="addStudentCtrl as aS">
+    <button type="button" ng-click="openModal(aS.addModalId)" class="btn btn-primary" ng-disabled="manage.courseList.length == 0">
+        Add Student
+    </button>
+    <small class="text-danger" ng-if="manage.courseList.length == 0">
+        You must have courses to create students
+    </small>
+    <span class="help-block">Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.</span>
+    <tm-modal 
+        ident="{{ aS.addModalId }}" 
+        header="Create Student" 
+        classes=""
+    >
+        <form name="add-student" class="">
+            <div class="row">
+                <fieldset class="form-group col-sm-4">
+                    <label for="name" class="control-label">Name</label>
+                    <input type="text" name="name" class="form-control">
+                </fieldset>
+                <fieldset class="form-group col-sm-4">
+                    <label for="email" class="control-label">Email</label>
+                    <input type="text" name="email" class="form-control">
+                </fieldset>
+                <fieldset class="form-group col-sm-4">
+                    <label for="course" class="control-label">Course</label>
+                    <select name="course" class="form-control">
+                        <option>ANG-001</option>
+                        <option>FEWD-001</option>
+                    </select>
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset class="form-group col-sm-4">
+                    <label for="first-session" class="control-label">First Session</label>
+                    <input type="text" name="first-session" class="form-control">
+                </fieldset>
+                <fieldset class="form-group col-sm-4">
+                    <label for="session-day" class="control-label">Session Day</label>
+                    <input type="text" name="session-day" class="form-control">
+                </fieldset>
+                <fieldset class="form-group col-sm-4">
+                    <label for="session-time" class="control-label">Session Time</label>
+                    <input type="text" name="session-time" class="form-control">
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset class="form-group col-sm-4">
+                    <label for="timezone" class="control-label">Timezone</label>
+                    <input type="text" name="timezone" class="form-control">
+                </fieldset>
+                <fieldset class="form-group col-sm-4">
+                    <label for="weekly-hours" class="control-label">Hours per week</label>
+                    <input type="text" name="weekly-hours" class="form-control">
+                </fieldset>
+                <fieldset class="form-group col-sm-4">
+                    <label for="os" class="control-label">Operating System</label>
+                    <select name="os" class="form-control">
+                        <option>Mac</option>
+                        <option>Windows</option>
+                        <option>Chromebook</option>
+                        <option>Linux</option>
+                    </select>
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset class="form-group col-sm-6">
+                    <label for="github" class="control-label">Github</label>
+                    <input type="text" name="github" class="form-control">
+                </fieldset>
+                <fieldset class="form-group col-sm-6">
+                    <label for="google" class="control-label">Google</label>
+                    <input type="text" name="google" class="form-control">
+                </fieldset>
+            </div>
+            
+            <fieldset class="form-group">
+                <label for="background" class="control-label">Background</label>
+                <textarea name="background" class="form-control"></textarea>
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="goals" class="control-label">Goals</label>
+                <textarea name="goals" class="form-control"></textarea>
+            </fieldset>
+            <div class="controls">
+                <button type="submit" class="btn btn-success">Create</button>
+            </div>
+        </form>
+    </tm-modal>
+</div>
