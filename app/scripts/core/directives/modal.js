@@ -33,7 +33,7 @@ angular.module('core')
                     throw new Error('modal requires and id');
             },
             link: function(scope, iEl, iAtt, crtl){
-                iEl.on('shown.bs.modal', function(e){
+                iEl.on('shown.bs.modal', function(){
                     angular.element( crtl.focusEl ).focus();
                 });
                 scope.$on('$destroy', function(){

@@ -18,10 +18,6 @@
         <!-- endbuild -->
 
     </head>
-    <!-- 
-        submit-text="{{ dash.modal.submitText }}" 
-        submit-fn="dash.modal.action(dash.course)"
-     -->
     <body>
         <div class="container">
             <div class="header">
@@ -41,13 +37,6 @@
                 </ul>
                 <h3 class="text-muted">time keeper</h3>
             </div>
-
-<!--             <div class="subnav">
-                <ul class="list-inline">
-                    <li><a href="#">Add</a></li>
-                    <li><a href="#">Archive</a></li>
-                </ul>
-            </div> -->
             <main ui-view></main>
         </div>
 
@@ -78,6 +67,7 @@
 
         <!-- Core -->
         <script src="scripts/core/core.js"></script>
+        <script src="scripts/core/factories/form-builder.js"></script>
         <script src="scripts/core/directives/modal.js"></script>
 
         <!-- Models -->
@@ -88,6 +78,7 @@
         <!-- Forms -->
         <script src="scripts/forms/forms.js"></script>
         <script src="scripts/forms/course-form.js"></script>
+        <script src="scripts/forms/student-form.js"></script>
 
         <!-- Gateways -->
         <script src="scripts/gateways/gateways.js"></script>

@@ -1,16 +1,8 @@
 'use strict';
 angular.module('forms')
-    .directive('courseForm', function(FORMSURL, CourseList){
-        return {
+    .directive('courseForm', function(FORMSURL, CourseList, formBuilder){
+        return formBuilder({
             templateUrl: FORMSURL + 'course-form.tmpl.html',
-            scope: {
-                entity: '=entity',
-                submitFn: '&submitFn'
-            },
-            bindToController: true,
-            controllerAs: 'form',
-            /* jshint unused:false */
-            controller: function($scope){ },
             link: function(scope, iElem, iAttr, ctrl){
                 scope.courseForm.name.$validators
                     .courseNameAvailable = function(modelValue){
@@ -21,6 +13,15 @@ angular.module('forms')
                             ? false : true;
                     };
             }
-        };
-    })
-;
+        });
+    });
+            // nice DSL?
+            // validators: function(scope, iElem, iAttr, ctrl){
+            //     return {
+            //         name: {
+            //             courseNameAvailable: function(){
+
+            //             }
+            //         }
+            //     };
+            // }
