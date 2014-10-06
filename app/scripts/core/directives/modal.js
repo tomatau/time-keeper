@@ -20,10 +20,11 @@ angular.module('core')
             templateUrl: COREURL + 'directives/modal.tmpl.html',
             scope: {
                 id: '@ident',
-                header: '@header',
-                buttonText: '@buttonText',
-                buttonFn: '&buttonFn',
-                classes: '@'
+                header: '@',
+                buttonText: '@',
+                buttonFn: '&',
+                classes: '@',
+                focusEl: '@'
             },
             bindToController: true,
             controllerAs: 'modal',
@@ -31,5 +32,13 @@ angular.module('core')
                 if ( this.id == null ) // wtf...
                     throw new Error('modal requires and id');
             },
+            link: function(scope, iEl, iAtt, crtl){
+                iEl.on('shown.bs.modal', function(e){
+                    angular.element( crtl.focusEl ).focus();
+                });
+                scope.$on('$destroy', function(){
+                    iEl.off('shown.bs.modal');
+                });
+            }
         };
     });
