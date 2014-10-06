@@ -1,4 +1,6 @@
 angular.module('forms', [
-        'models'
+        'models',
+        'mgcrea.ngStrap.datepicker',
+        'mgcrea.ngStrap.timepicker'
     ])
     .constant('FORMSURL', 'scripts/forms/');

@@ -105,11 +105,17 @@ gulp.task('wiredep', function () {
         }))
         .pipe(gulp.dest('app/styles'));
 
+    /**
+     * Other nice libs:
+     * https://github.com/Eonasdan/bootstrap-datetimepicker
+     * 
+     */
     gulp.src('app/*.html')
         .pipe(wiredep({
             directory: 'app/bower_components',
             exclude: [
                 'bootstrap-sass-official',
+                'angular-strap',
                 'bootstrap'
             ]
         }))

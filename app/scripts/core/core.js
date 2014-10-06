@@ -1,2 +1,3 @@
-angular.module('core', [ ])
+angular.module('core', [
+    ])
     .constant('COREURL', 'scripts/core/');
