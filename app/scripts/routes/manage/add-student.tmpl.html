@@ -13,47 +13,65 @@
     >
         <form name="add-student" class="">
             <div class="row">
-                <fieldset class="form-group col-sm-4">
+                <fieldset class="form-group col-sm-6 required">
                     <label for="name" class="control-label">Name</label>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" required class="form-control">
                 </fieldset>
-                <fieldset class="form-group col-sm-4">
+                <fieldset class="form-group col-sm-6 required">
                     <label for="email" class="control-label">Email</label>
-                    <input type="text" name="email" class="form-control">
+                    <input type="text" name="email" required class="form-control">
                 </fieldset>
-                <fieldset class="form-group col-sm-4">
+            </div>
+            <div class="row">
+                <fieldset class="form-group col-sm-4 required">
+                    <label for="first-session" class="control-label">First Session</label>
+                    <div class="input-group">
+                        <input type="text" required class="form-control" name="first-session" >
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group col-sm-4 required">
+                    <label for="session-day" class="control-label">Session Day</label>
+                    <select name="session-day" required class="form-control">
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    </select>
+                </fieldset>
+                <fieldset class="form-group col-sm-4 required">
+                    <label for="session-time" class="control-label">Session Time</label>
+                    <div class="input-group">
+                        <input type="text" required name="session-time" class="form-control">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="row">
+                <fieldset class="form-group col-sm-3 required">
                     <label for="course" class="control-label">Course</label>
-                    <select name="course" class="form-control">
+                    <select name="course" required class="form-control">
                         <option>ANG-001</option>
                         <option>FEWD-001</option>
                     </select>
                 </fieldset>
-            </div>
-            <div class="row">
-                <fieldset class="form-group col-sm-4">
-                    <label for="first-session" class="control-label">First Session</label>
-                    <input type="text" name="first-session" class="form-control">
-                </fieldset>
-                <fieldset class="form-group col-sm-4">
-                    <label for="session-day" class="control-label">Session Day</label>
-                    <input type="text" name="session-day" class="form-control">
-                </fieldset>
-                <fieldset class="form-group col-sm-4">
-                    <label for="session-time" class="control-label">Session Time</label>
-                    <input type="text" name="session-time" class="form-control">
-                </fieldset>
-            </div>
-            <div class="row">
-                <fieldset class="form-group col-sm-4">
+                <fieldset class="form-group col-sm-3 required">
                     <label for="timezone" class="control-label">Timezone</label>
-                    <input type="text" name="timezone" class="form-control">
+                    <input type="text" required name="timezone" class="form-control">
                 </fieldset>
-                <fieldset class="form-group col-sm-4">
+                <fieldset class="form-group col-sm-3">
                     <label for="weekly-hours" class="control-label">Hours per week</label>
-                    <input type="text" name="weekly-hours" class="form-control">
+                    <input type="number" name="weekly-hours" class="form-control">
                 </fieldset>
-                <fieldset class="form-group col-sm-4">
-                    <label for="os" class="control-label">Operating System</label>
+                <fieldset class="form-group col-sm-3">
+                    <label for="os" class="control-label">OS</label>
                     <select name="os" class="form-control">
                         <option>Mac</option>
                         <option>Windows</option>
@@ -75,11 +93,11 @@
             
             <fieldset class="form-group">
                 <label for="background" class="control-label">Background</label>
-                <textarea name="background" class="form-control"></textarea>
+                <textarea name="background" class="form-control" rows="5"></textarea>
             </fieldset>
             <fieldset class="form-group">
                 <label for="goals" class="control-label">Goals</label>
-                <textarea name="goals" class="form-control"></textarea>
+                <textarea name="goals" class="form-control" rows="5"></textarea>
             </fieldset>
             <div class="controls">
                 <button type="submit" class="btn btn-success">Create</button>
