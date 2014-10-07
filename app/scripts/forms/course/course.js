@@ -35,7 +35,7 @@ angular.module('forms')
                                 valid = true;
                             }
                         }
-                        scope.courseForm.$setValidity('unique', valid);
+                        scope.courseForm.$setValidity('notUnique', valid);
                     });
             }
         });
