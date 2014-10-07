@@ -16,11 +16,10 @@ angular.module('forms')
         });
     });
             // nice DSL?
-            // validators: function(scope, iElem, iAttr, ctrl){
+            // validators: function(entity){
             //     return {
             //         name: {
             //             courseNameAvailable: function(){
-
             //             }
             //         }
             //     };

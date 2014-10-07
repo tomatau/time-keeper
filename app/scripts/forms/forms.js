@@ -1,4 +1,5 @@
 angular.module('forms', [
+        'core',
         'models',
         'mgcrea.ngStrap.datepicker',
         'mgcrea.ngStrap.timepicker'
