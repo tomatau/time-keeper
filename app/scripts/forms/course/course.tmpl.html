@@ -15,9 +15,12 @@
             class="form-control">
             <div ng-messages="courseForm.name.$error" 
                 ng-if="courseForm.$submitted || courseForm.name.$touched">
-                <p ng-message="required" class="text-danger">A course name is required</p>
-                <p ng-message="minlength" class="text-danger">Course names must be 4 characters or more</p>
-                <p ng-message="pattern" class="text-danger">Course name format should be <em>ABC-123</em></p>
+                <p ng-message="required" class="text-danger">
+                    A course name is required</p>
+                <p ng-message="minlength" class="text-danger">
+                    Course names must be 4 characters or more</p>
+                <p ng-message="pattern" class="text-danger">
+                    Course name format should be <em>ABC-123</em></p>
             </div>
     </fieldset>
     <fieldset  class="form-group required">

@@ -65,9 +65,14 @@
     <div class="row">
         <fieldset class="form-group col-sm-3 required">
             <label for="course" class="control-label">Course</label>
-            <select name="course" required class="form-control">
-                <option>ANG-001</option>
-                <option>FEWD-001</option>
+            <select
+                name="course" 
+                required 
+                ng-model="form.entity.course"
+                ng-options="value.id as value.name+'v'+value.version 
+                            for value in form.courseList | orderBy:'name'"
+                class="form-control">
+                <option value="-">--</option>
             </select>
         </fieldset>
         <fieldset class="form-group col-sm-3 required">

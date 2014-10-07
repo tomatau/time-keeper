@@ -17,13 +17,14 @@ module.exports = function(config) {
     files: [
       // angular
       'app/bower_components/jquery/dist/jquery.js'
-      ,'app/bower_components/angular/angular.js'
       ,'app/bower_components/underscore/underscore.js'
-      ,'app/bower_components/angular-mocks/angular-mocks.js'
       ,'app/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap/modal.js'
       ,'app/bower_components/idbwrapper/idbstore.js'
+      ,'app/bower_components/angular/angular.js'
+      ,'app/bower_components/angular-messages/angular-messages.js'
       ,'app/bower_components/angular-strap/dist/angular-strap.min.js'
       ,'app/bower_components/angular-strap/dist/angular-strap.tpl.min.js'
+      ,'app/bower_components/angular-mocks/angular-mocks.js'
 
       // testing libraries
       ,'node_modules/jasmine-expect/dist/jasmine-matchers.js'
@@ -44,7 +45,7 @@ module.exports = function(config) {
       // glob all the scripts
       ,'app/scripts/core/**/*.js'
       ,'app/scripts/models/*.js'
-      ,'app/scripts/forms/*.js'
+      ,'app/scripts/forms/**/*.js'
       ,'app/scripts/gateways/**/*.js'
       ,'app/scripts/use-cases/**/*.js'
 

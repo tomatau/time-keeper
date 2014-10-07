@@ -12,6 +12,8 @@ angular.module('core')
                 controllerAs: 'form',
                 /* jshint unused:false */
                 controller: function($scope){
+                    if (this.original == null)
+                        throw new Error('Form requires entity');
                     // copy the entity so we can change it
                     this.entity = angular.copy(this.original);
                 }
