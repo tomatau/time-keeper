@@ -1,4 +1,4 @@
-<form name="courseForm" ng-submit="form.submitFn(form.entity)" novalidate>
+<form name="courseForm" ng-submit="form.submitFn()(form.entity)" novalidate>
     <fieldset ng-if="form.entity.id != null"  class="form-group required">
         <label for="id" class="control-label">Course Id</label>
         <input ng-if="form.entity.id != null" ng-model="form.entity.id"
@@ -28,5 +28,4 @@
             Create
         </button>
     </div>
-    <pre>{{ courseForm | json }}</pre>
 </form>

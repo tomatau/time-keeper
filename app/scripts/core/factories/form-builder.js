@@ -4,14 +4,17 @@ angular.module('core')
         return function(formDirective){
             return angular.extend({}, {
                 scope: {
-                    entity: '=entity',
+                    original: '=entity',
                     submitFn: '&submitFn'
                 },
                 transclude: true,
                 bindToController: true,
                 controllerAs: 'form',
                 /* jshint unused:false */
-                controller: function($scope){ }
+                controller: function($scope){
+                    // copy the entity so we can change it
+                    this.entity = angular.copy(this.original);
+                }
             }, formDirective);
         };
     });
