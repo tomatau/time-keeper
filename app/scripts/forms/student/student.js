@@ -2,7 +2,7 @@
 angular.module('forms')
     .directive('studentForm', function(FORMSURL, formBuilder){
         return formBuilder({
-            templateUrl: FORMSURL + 'student-form.tmpl.html',
+            templateUrl: FORMSURL + 'student/student.tmpl.html',
         });
     });
         // Validators

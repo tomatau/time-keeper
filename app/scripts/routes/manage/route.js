@@ -30,9 +30,10 @@ angular.module('routes')
         var vm = this;
         vm.courseList = CourseList.get();
     })
-    .controller('addCourseCtrl', function(Course, addCourse, closeModal){
+    .controller('addCourseCtrl', function(Course, CourseList, addCourse, closeModal){
         var vm = this;
-        vm.course = Course.get();
+        vm.course = CourseList.get()[0];
+        // vm.course = Course.get();
         vm.addModalId = 'create-course-modal';
         vm.modalAction = function modalAction(){
             addCourse(vm.course)

@@ -2,7 +2,7 @@
 angular.module('forms')
     .directive('courseForm', function(FORMSURL, CourseList, formBuilder){
         return formBuilder({
-            templateUrl: FORMSURL + 'course-form.tmpl.html',
+            templateUrl: FORMSURL + 'course/course.tmpl.html',
             link: function(scope, iElem, iAttr, ctrl){
                 scope.courseForm.name.$validators
                     .courseNameAvailable = function(modelValue){

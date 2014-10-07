@@ -12,7 +12,7 @@
     <ul>
         <li ng-if="manage.courseList.length == 0">No courses (ಠ_ಠ)</li>
         <li ng-repeat="c in manage.courseList">
-            {{ c.name }}
+            {{ c.name }} - v{{ c.version }}
         </li>
     </ul>
 </section>
