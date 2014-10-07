@@ -1,16 +1,25 @@
 <form name="courseForm" ng-submit="form.submitFn(form.entity)" novalidate>
-    <fieldset class="form-group">
-        <label ng-if="form.entity.id != null"
-            for="id" class="control-label">Course Id</label>
+    <fieldset ng-if="form.entity.id != null"  class="form-group required">
+        <label for="id" class="control-label">Course Id</label>
         <input ng-if="form.entity.id != null" ng-model="form.entity.id"
             type="text" disabled="disabled" 
             name="id" class="form-control">
+    </fieldset>
+    <fieldset class="form-group required">
         <label for="name" 
             class="control-label">Course Name</label>
         <input ng-model="form.entity.name" 
             id="courseName"
             type="text" name="name" 
             required minlength="4"
+            class="form-control">
+    </fieldset>
+    <fieldset  class="form-group required">
+        <label for="version" 
+            class="control-label">Version</label>
+        <input ng-model="form.entity.version" 
+            type="number" name="version" 
+            required
             class="form-control">
     </fieldset>
     <div class="controls">
