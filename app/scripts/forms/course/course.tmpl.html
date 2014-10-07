@@ -11,8 +11,14 @@
         <input ng-model="form.entity.name" 
             id="courseName"
             type="text" name="name" 
-            required minlength="4"
+            required minlength="4" ng-pattern="/[A-Z]{3,}-\d{3,3}$/"
             class="form-control">
+            <div ng-messages="courseForm.name.$error" 
+                ng-if="courseForm.$submitted || courseForm.name.$touched">
+                <p ng-message="required" class="text-danger">A course name is required</p>
+                <p ng-message="minlength" class="text-danger">Course names must be 4 characters or more</p>
+                <p ng-message="pattern" class="text-danger">Course name format should be <em>ABC-123</em></p>
+            </div>
     </fieldset>
     <fieldset  class="form-group required">
         <label for="version" 
@@ -21,6 +27,11 @@
             type="number" name="version" 
             required
             class="form-control">
+            <div ng-messages="courseForm.version.$error" 
+                ng-if="courseForm.$submitted || courseForm.version.$touched">
+                <p ng-message="required" class="text-danger">A course version is required</p>
+                <p ng-message="number" class="text-danger">Version must be a number</p>
+            </div>
     </fieldset>
     <div class="controls">
         <button ng-disabled="courseForm.$invalid"
@@ -28,5 +39,4 @@
             Create
         </button>
     </div>
-    <pre>{{ courseForm.$error | json }}</pre>
 </form>
