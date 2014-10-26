@@ -32,10 +32,17 @@
             class="form-control">
             <div ng-messages="courseForm.version.$error" 
                 ng-if="courseForm.$submitted || courseForm.version.$touched">
-                <p ng-message="required" class="text-danger">A course version is required</p>
-                <p ng-message="number" class="text-danger">Version must be a number</p>
+                <p ng-message="required" class="text-danger">
+                    A course version is required</p>
+                <p ng-message="number" class="text-danger">
+                    Version must be a number</p>
             </div>
     </fieldset>
+    <div ng-messages="courseForm.$error" 
+        ng-if="courseForm.$submitted || courseForm.version.$touched">
+        <p ng-message="notUnique" class="text-danger">
+            You must supply a unique course name and version</p>
+    </div>
     <div class="controls">
         <button ng-disabled="courseForm.$invalid"
             type="submit" class="btn btn-success">

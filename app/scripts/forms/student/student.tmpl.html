@@ -23,8 +23,6 @@
                     class="form-control" 
                     name="first-session" 
                     ng-model="form.entity.firstSession"
-                    date-format="mediumDate"
-                    min-date="today"
                     bs-datepicker>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
@@ -53,8 +51,6 @@
                     class="form-control" 
                     name="session-time" 
                     ng-model="form.entity.sessionTime"
-                    date-format="mediumDate"
-                    min-date="today"
                     bs-timepicker>
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-time"></span>
@@ -69,8 +65,8 @@
                 name="course" 
                 required 
                 ng-model="form.entity.course"
-                ng-options="value.id as value.name+'v'+value.version 
-                            for value in form.courseList | orderBy:'name'"
+                ng-options="c.id as c.name+'v'+c.version 
+                            for c in form.courseList | orderBy:'name' track by c.id"
                 class="form-control">
                 <option value="-">--</option>
             </select>
