@@ -38,7 +38,7 @@ describe('Course Unique Validator Test', function () {
         });
     });
 
-    ddescribe('Editing a Course', function () {
+    describe('Editing a Course', function () {
         beforeEach(function () {
             original = {
                 id: 2,
