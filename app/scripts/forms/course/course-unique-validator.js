@@ -31,5 +31,5 @@ angular.module('forms')
                 }
             }
             return valid;
-        }
+        };
     });
