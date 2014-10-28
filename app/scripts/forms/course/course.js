@@ -5,7 +5,6 @@ angular.module('forms')
             templateUrl: FORMSURL + 'course/course.tmpl.html',
             link: function(scope, iElem, iAttr, ctrl){
                 scope.$watchCollection('form.entity', function validateCourse(entity){
-                    // console.log(entity)
                     scope.courseForm.$setValidity('notUnique', 
                         courseUniqueValidator(entity, ctrl.original)
                     );
