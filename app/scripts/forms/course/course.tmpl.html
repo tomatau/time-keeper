@@ -11,7 +11,7 @@
         <input ng-model="form.entity.name" 
             id="courseName"
             type="text" name="name" 
-            required minlength="4" ng-pattern="/[A-Z]{3,}-\d{3,3}$/"
+            required ng-pattern="/[A-Z]{3,}-\d{3,3}$/"
             class="form-control">
             <div ng-messages="courseForm.name.$error" 
                 ng-if="courseForm.$submitted || courseForm.name.$touched">
