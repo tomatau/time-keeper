@@ -21,8 +21,7 @@ describe('Course Form Test', function () {
     }));
 
     it('should disable the submit button', function () {
-        currentScope.entity = {
-        };
+        currentScope.entity = {};
         html.attr('entity', 'entity');
         compileDir();
 
@@ -33,11 +32,10 @@ describe('Course Form Test', function () {
     });
 
     it('should not have an id input when not in entity', function () {
-        currentScope.entity = {
-        };
+        currentScope.entity = {};
         html.attr('entity', 'entity');
-
         compileDir();
+
         rootElement = compiledDir.find('form');
         expect(
             rootElement.find('[name=id]').length
@@ -65,104 +63,104 @@ describe('Course Form Test', function () {
         ).toBe( currentScope.entity.name );
     });
 
-    xdescribe('Validation - invalid', function () {
-        var formCtrl;
+    // xdescribe('Validation - invalid', function () {
+    //     var formCtrl;
 
-        beforeEach(function () {
-            currentScope.entity = {
-                id: 1,
-                name: "333",
-            };
-            html.attr('entity', 'entity');
-        });
+    //     beforeEach(function () {
+    //         currentScope.entity = {
+    //             id: 1,
+    //             name: "333",
+    //         };
+    //         html.attr('entity', 'entity');
+    //     });
 
-        it('should be invalid when name is less than 4 chars', function () {
-            compileDir();
-            formCtrl = compiledDir.data().$isolateScope.courseForm;
+    //     it('should be invalid when name is less than 4 chars', function () {
+    //         compileDir();
+    //         formCtrl = compiledDir.data().$isolateScope.courseForm;
 
-            expect(
-                formCtrl.name.$error.minlength
-            ).toEqual(true);
+    //         expect(
+    //             formCtrl.name.$error.minlength
+    //         ).toEqual(true);
 
-            currentScope.entity.name = "4444";
-            currentScope.$digest();
-            expect(
-                formCtrl.name.$error.minlength
-            ).toBeUndefined();
-        });
+    //         currentScope.entity.name = "4444";
+    //         currentScope.$digest();
+    //         expect(
+    //             formCtrl.name.$error.minlength
+    //         ).toBeUndefined();
+    //     });
 
-        describe('Name with more than 4 characters', function () {
-            var courseNameAvailable,
-                findReturn;
+    //     describe('Name with more than 4 characters', function () {
+    //         var courseNameAvailable,
+    //             findReturn;
 
-            beforeEach(function () {
-                currentScope.entity = {
-                    id: 1,
-                    name: "valid-name",
-                };
-                findReturn = {
-                    id: 2,
-                    name: "valid-name"
-                };
-            });
+    //         beforeEach(function () {
+    //             currentScope.entity = {
+    //                 id: 1,
+    //                 name: "valid-name",
+    //             };
+    //             findReturn = {
+    //                 id: 2,
+    //                 name: "valid-name"
+    //             };
+    //         });
 
-            it('should be invalid when name already exists', inject(function (CourseList) {
-                compileDir();
-                sinon.stub(CourseList, "find").returns(findReturn);
-                formCtrl = compiledDir.data().$isolateScope.courseForm;
-                courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
+    //         it('should be invalid when name already exists', inject(function (CourseList) {
+    //             compileDir();
+    //             sinon.stub(CourseList, "find").returns(findReturn);
+    //             formCtrl = compiledDir.data().$isolateScope.courseForm;
+    //             courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
 
-                expect(
-                    courseNameAvailable(currentScope.entity.name)
-                ).toBe(false);
-                expect(CourseList.find).toHaveBeenCalledWith({
-                    name: currentScope.entity.name
-                });
-            }));
+    //             expect(
+    //                 courseNameAvailable(currentScope.entity.name)
+    //             ).toBe(false);
+    //             expect(CourseList.find).toHaveBeenCalledWith({
+    //                 name: currentScope.entity.name
+    //             });
+    //         }));
 
-            it('should be valid when a unique name', inject(function (CourseList) {
-                findReturn = undefined;
-                sinon.stub(CourseList, "find").returns(findReturn);
-                compileDir();
-                formCtrl = compiledDir.data().$isolateScope.courseForm;
-                courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
+    //         it('should be valid when a unique name', inject(function (CourseList) {
+    //             findReturn = undefined;
+    //             sinon.stub(CourseList, "find").returns(findReturn);
+    //             compileDir();
+    //             formCtrl = compiledDir.data().$isolateScope.courseForm;
+    //             courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
 
-                expect(
-                    courseNameAvailable(currentScope.entity.name)
-                ).toBe(true);
-                expect(CourseList.find).toHaveBeenCalledWith({
-                    name: currentScope.entity.name
-                });
-            }));
+    //             expect(
+    //                 courseNameAvailable(currentScope.entity.name)
+    //             ).toBe(true);
+    //             expect(CourseList.find).toHaveBeenCalledWith({
+    //                 name: currentScope.entity.name
+    //             });
+    //         }));
 
-            it('should be valid when name exists on entity id', inject(function (CourseList) {
-                findReturn.id = 1;
-                compileDir();
-                sinon.stub(CourseList, "find").returns(findReturn);
-                formCtrl = compiledDir.data().$isolateScope.courseForm;
-                courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
+    //         it('should be valid when name exists on entity id', inject(function (CourseList) {
+    //             findReturn.id = 1;
+    //             compileDir();
+    //             sinon.stub(CourseList, "find").returns(findReturn);
+    //             formCtrl = compiledDir.data().$isolateScope.courseForm;
+    //             courseNameAvailable = formCtrl.name.$validators.courseNameAvailable;
 
-                expect(
-                    courseNameAvailable(currentScope.entity.name)
-                ).toBe(true);
-                expect(CourseList.find).toHaveBeenCalledWith({
-                    name: currentScope.entity.name
-                });
-            }));
+    //             expect(
+    //                 courseNameAvailable(currentScope.entity.name)
+    //             ).toBe(true);
+    //             expect(CourseList.find).toHaveBeenCalledWith({
+    //                 name: currentScope.entity.name
+    //             });
+    //         }));
 
-            describe('Valid Name', function () {
-                it('should perform submitFn when submitted', inject(function (CourseList) {
-                    html.attr('submit-fn', 'entity.id = 3');
-                    expect( currentScope.entity.id ).not.toEqual(3);
-                    compileDir();
+    //         describe('Valid Name', function () {
+    //             it('should perform submitFn when submitted', inject(function (CourseList) {
+    //                 html.attr('submit-fn', 'entity.id = 3');
+    //                 expect( currentScope.entity.id ).not.toEqual(3);
+    //                 compileDir();
 
-                    compiledDir.find('[type=submit]').click();
+    //                 compiledDir.find('[type=submit]').click();
                     
-                    expect( currentScope.entity.id ).toEqual(3);
-                }));
-            });
-        });
-    });
+    //                 expect( currentScope.entity.id ).toEqual(3);
+    //             }));
+    //         });
+    //     });
+    // });
 
     function compileDir() {
         compiledDir = $$compile(html)(currentScope);
