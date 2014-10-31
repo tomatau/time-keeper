@@ -1,6 +1,11 @@
 'use strict';
 angular.module('forms')
-    .directive('courseForm', function(FORMSURL, CourseList, formBuilder, courseUniqueValidator){
+    .directive('courseForm', function(
+        formBuilder, 
+        FORMSURL, 
+        CourseList, 
+        courseUniqueValidator
+    ){
         return formBuilder({
             templateUrl: FORMSURL + 'course/course.tmpl.html',
             link: function(scope, iElem, iAttr, ctrl){

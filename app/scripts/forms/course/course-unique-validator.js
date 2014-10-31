@@ -2,7 +2,7 @@
 angular.module('forms')
     .factory('courseUniqueValidator', function(CourseList){
         return function(entity, original){
-            if ( _.contains([entity, original], undefined) )
+            if ( entity == null || original == null )
                 throw new Error('Must supply both original and updated entity');
             var valid = false,
                 nameExists = _.where(CourseList.get(), { name: entity.name });

@@ -11,6 +11,10 @@
         <input ng-model="form.entity.name" 
             id="courseName"
             type="text" name="name" 
+            ng-model-options="{
+                updateOn: 'default blur', 
+                debounce: {'default': 200, 'blur': 0}
+            }"
             required ng-pattern="/[A-Z]{3,}-\d{3,3}$/"
             class="form-control">
             <div ng-messages="courseForm.name.$error" 
@@ -27,6 +31,10 @@
         <label for="version" 
             class="control-label">Version</label>
         <input ng-model="form.entity.version" 
+            ng-model-options="{
+                updateOn: 'default blur', 
+                debounce: {'default': 200, 'blur': 0}
+            }"
             type="number" name="version" 
             required
             class="form-control">
