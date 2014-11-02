@@ -1,4 +1,4 @@
-<form name="courseForm" ng-submit="form.submitFn(form.entity)" novalidate>
+<form name="courseForm" ng-submit="form.submit()" novalidate>
     <fieldset ng-if="form.entity.id != null"  class="form-group required">
         <label for="id" class="control-label">Course Id</label>
         <input ng-if="form.entity.id != null" ng-model="form.entity.id"
@@ -11,10 +11,7 @@
         <input ng-model="form.entity.name" 
             id="courseName"
             type="text" name="name" 
-            ng-model-options="{
-                updateOn: 'default blur', 
-                debounce: {'default': 200, 'blur': 0}
-            }"
+            ng-model-options="form.modelOptions"
             required ng-pattern="/[A-Z]{3,}-\d{3,3}$/"
             class="form-control">
             <div ng-messages="courseForm.name.$error" 
@@ -31,10 +28,7 @@
         <label for="version" 
             class="control-label">Version</label>
         <input ng-model="form.entity.version" 
-            ng-model-options="{
-                updateOn: 'default blur', 
-                debounce: {'default': 200, 'blur': 0}
-            }"
+            ng-model-options="form.modelOptions"
             type="number" name="version" 
             required
             class="form-control">

@@ -34,11 +34,10 @@ angular.module('routes')
         var vm = this;
         vm.course = Course.get();
         vm.addModalId = 'create-course-modal';
-        vm.modalAction = function modalAction(course){
-            addCourse(course)
+        vm.modalAction = function modalAction(){
+            return addCourse()
                 .then(function(){
                     closeModal(vm.addModalId);
-                    Course.reset();
                 });
         };
     })

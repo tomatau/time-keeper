@@ -8,12 +8,9 @@ angular.module('forms')
     ){
         return formBuilder({
             templateUrl: FORMSURL + 'course/course.tmpl.html',
-            link: function(scope, iElem, iAttr, ctrl){
-                scope.$watchCollection('form.entity', function validateCourse(entity){
-                    scope.courseForm.$setValidity('notUnique', 
-                        courseUniqueValidator(entity, ctrl.original)
-                    );
-                });
+            formName: 'courseForm',
+            validators: {
+                'notUnique': courseUniqueValidator
             }
         });
     });

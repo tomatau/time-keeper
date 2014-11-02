@@ -116,30 +116,28 @@ describe('Course Form Test', function () {
     });
 
     describe('Valid Entity', function () {
-        var formCtrl;
-
-        beforeEach(function () {
-            currentScope.course = {
+        var formCtrl,
+            directiveScope,
+            originalCourse = {
                 id: 1,
                 name: "test-name",
             };
+
+        beforeEach(function () {
+            currentScope.course = angular.copy(originalCourse);
             html.attr('entity', 'course');
             compileDir();
-            formCtrl = compiledDir.data().$isolateScope.form;
+            directiveScope = compiledDir.data().$isolateScope;
+            formCtrl = directiveScope.form;
         });
 
         it('should call courseUniqueValidator with both entities', function () {
-            expect(courseUniqueValidatorSpy)
-                .toHaveBeenCalledWith(formCtrl.entity, formCtrl.original);
-        });
-
-        it('should call courseUniqueValidator on entity changes', function () {
-            courseUniqueValidatorSpy.reset();
-
             formCtrl.entity.name = "new";
+            directiveScope.courseForm.$pristine = false;
             currentScope.$digest();
 
-            expect(courseUniqueValidatorSpy).toHaveBeenCalled();
+            expect(courseUniqueValidatorSpy)
+                .toHaveBeenCalledWith(formCtrl.entity, originalCourse);
         });
     });
 

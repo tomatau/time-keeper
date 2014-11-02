@@ -1,5 +1,8 @@
 describe('Add Course', function () {
-    var def;
+    var def,
+        course = {
+            course: "test"
+        };
 
     beforeEach( module('useCases') );
 
@@ -11,6 +14,10 @@ describe('Add Course', function () {
                 })
             });
             $provide.value('CourseList', { add: sinon.spy() });
+            $provide.value('Course', {
+                get: function() { return course; },
+                reset: sinon.spy()
+            });
         });
         inject(function(CourseList, coursesGateway, $q){
             def = $q.defer();
@@ -28,11 +35,11 @@ describe('Add Course', function () {
     ) {
         var validCourse = { name: 'ANG001' };
 
-        addCourse(validCourse);
+        addCourse();
         def.resolve(validCourse);
         $rootScope.$digest();
 
-        expect(coursesGateway.save) .toHaveBeenCalledWith(validCourse);
+        expect(coursesGateway.save) .toHaveBeenCalledWith(course);
         expect(CourseList.add) .toHaveBeenCalledWith(validCourse);
     }));
 
