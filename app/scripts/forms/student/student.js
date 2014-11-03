@@ -10,7 +10,7 @@ angular.module('forms')
             firstSession: moment(),
             sessionTime: moment().startOf('day').add(12, 'hours'),
             timezone: 'ET',
-            hoursPerWeek: 10,
+            weeklyHours: 10,
         };
 
         var daysOfWeek = [{

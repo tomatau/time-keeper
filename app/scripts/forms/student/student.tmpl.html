@@ -93,6 +93,12 @@
                 required
                 class="btn btn-default form-control">
             </button>
+            <div ng-messages="studentForm.sessionDay.$error"
+                ng-if="studentForm.$submitted || studentForm.sessionDay.$touched">
+                <p ng-message="required" class="text-danger">
+                    A day of the week is required
+                </p>
+            </div>
         </fieldset>
         <fieldset class="form-group col-sm-4 required">
             <label for="session-time" class="control-label">
@@ -100,7 +106,7 @@
             </label>
             <div class="input-group">
                 <input ng-model="form.entity.sessionTime"
-                    id="first-session"
+                    id="session-time"
                     type="text"
                     name="sessionTime"
                     required
@@ -110,13 +116,21 @@
                     <span class="glyphicon glyphicon-time"></span>
                 </span>
             </div>
+            <div ng-messages="studentForm.sessionTime.$error"
+                ng-if="studentForm.$submitted || studentForm.sessionTime.$touched">
+                <p ng-message="required" class="text-danger">
+                    A time is required
+                </p>
+            </div>
         </fieldset>
     </div>
     <div class="row">
         <fieldset class="form-group col-sm-3 required">
-            <label for="course" class="control-label">Course</label>
+            <label for="course" class="control-label">
+                Course
+            </label>
             <button ng-model="form.entity.course"
-                id="session-day"
+                id="course"
                 type="button"
                 name="course"
                 bs-select
@@ -126,14 +140,39 @@
                             for c in form.courseList | orderBy:'name' track by c.id"
                 class="btn btn-default form-control">
             </button>
+            <div ng-messages="studentForm.course.$error"
+                ng-if="studentForm.$submitted || studentForm.course.$touched">
+                <p ng-message="required" class="text-danger">
+                    A course is required
+                </p>
+            </div>
         </fieldset>
         <fieldset class="form-group col-sm-3 required">
-            <label for="timezone" class="control-label">Timezone</label>
-            <input type="text" required name="timezone" class="form-control">
+            <label for="timezone" class="control-label">
+                Timezone
+            </label>
+            <input ng-model="form.entity.timezone"
+                id="timezone"
+                type="text"
+                name="timezone"
+                required
+                class="form-control">
+            <div ng-messages="studentForm.timezone.$error"
+                ng-if="studentForm.$submitted || studentForm.timezone.$touched">
+                <p ng-message="required" class="text-danger">
+                    A timezone is required
+                </p>
+            </div>
         </fieldset>
         <fieldset class="form-group col-sm-3">
-            <label for="weekly-hours" class="control-label">Hours per week</label>
-            <input type="number" name="weekly-hours" class="form-control">
+            <label for="weekly-hours" class="control-label">
+                Hours per week
+            </label>
+            <input ng-model="form.entity.weeklyHours"
+                id="weekly-hours"
+                type="number"
+                name="weeklyHours"
+                class="form-control">
         </fieldset>
         <fieldset class="form-group col-sm-3">
             <label for="os" class="control-label">OS</label>
@@ -147,30 +186,55 @@
     </div>
     <div class="row">
         <fieldset class="form-group col-sm-6">
-            <label for="github" class="control-label">Github</label>
+            <label for="github" class="control-label">
+                Github
+            </label>
             <div class="input-group">
                 <span class="input-group-addon">github.com</span>
-                <input type="text" name="github" class="form-control">
+                <input ng-model="form.entity.github"
+                    id="github"
+                    type="text"
+                    name="github"
+                    class="form-control">
             </div>
         </fieldset>
         <fieldset class="form-group col-sm-6">
-            <label for="google" class="control-label">Google</label>
+            <label for="google" class="control-label">
+                Google+
+            </label>
             <div class="input-group">
                 <span class="input-group-addon">plus.google.com</span>
-                <input type="text" name="google" class="form-control">
+                <input ng-model="form.entity.google"
+                    id="google"
+                    type="text"
+                    name="google"
+                    class="form-control">
             </div>
         </fieldset>
     </div>
-
     <fieldset class="form-group">
-        <label for="background" class="control-label">Background</label>
-        <textarea name="background" class="form-control" rows="5"></textarea>
+        <label for="background" class="control-label">
+            Background
+        </label>
+        <textarea ng-model="form.entity.background"
+            id="background"
+            name="background"
+            class="form-control"
+            rows="5"></textarea>
     </fieldset>
     <fieldset class="form-group">
-        <label for="goals" class="control-label">Goals</label>
-        <textarea name="goals" class="form-control" rows="5"></textarea>
+        <label for="goals" class="control-label">
+            Goals
+        </label>
+        <textarea ng-model="form.entity.goals"
+            id="goals"
+            name="goals"
+            class="form-control"
+            rows="5"></textarea>
     </fieldset>
     <div class="controls">
-        <button type="submit" class="btn btn-success">Create</button>
+        <button type="submit" class="btn btn-success">
+            Create
+        </button>
     </div>
 </form>
