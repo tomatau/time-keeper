@@ -136,8 +136,8 @@
                 bs-select
                 required
                 data-placeholder="--"
-                ng-options="c.name+'v'+c.version
-                            for c in form.courseList | orderBy:'name' track by c.id"
+                ng-options="c.id as c.name+'v'+c.version
+                            for c in form.courseList | orderBy:'name'"
                 class="btn btn-default form-control">
             </button>
             <div ng-messages="studentForm.course.$error"
@@ -164,15 +164,22 @@
                 </p>
             </div>
         </fieldset>
-        <fieldset class="form-group col-sm-3">
-            <label for="weekly-hours" class="control-label">
-                Hours per week
+        <fieldset class="form-group col-sm-3 required">
+            <label for="num-sessions" class="control-label">
+                N&ordm; of Sessions
             </label>
-            <input ng-model="form.entity.weeklyHours"
-                id="weekly-hours"
+            <input ng-model="form.entity.numSessions"
+                id="num-sessions"
                 type="number"
-                name="weeklyHours"
+                name="numSessions"
+                required
                 class="form-control">
+            <div ng-messages="studentForm.numSessions.$error"
+                ng-if="studentForm.$submitted || studentForm.numSessions.$touched">
+                <p ng-message="required" class="text-danger">
+                    How many sessions?
+                </p>
+            </div>
         </fieldset>
         <fieldset class="form-group col-sm-3">
             <label for="os" class="control-label">OS</label>

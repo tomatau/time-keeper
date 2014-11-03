@@ -1,19 +1,25 @@
 <div class="add-sudent" ng-controller="addStudentCtrl as aS">
-    <button type="button" ng-click="openModal(aS.addModalId)" class="btn btn-primary" ng-disabled="manage.courseList.length == 0">
+    <button
+        type="button"
+        ng-click="openModal(aS.addModalId)"
+        ng-disabled="manage.courseList.length == 0"
+        class="btn btn-primary">
         Add Student
     </button>
     <small class="text-danger" ng-if="manage.courseList.length == 0">
         You must have courses to create students
     </small>
-    <span class="help-block">Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.</span>
-    <tm-modal 
-        ident="{{ aS.addModalId }}" 
+    <span class="help-block">
+        Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.
+    </span>
+    <tm-modal
+        ident="{{ aS.addModalId }}"
         header="Create Student"
         focus-el="#student-name"
     >
-        <student-form 
+        <student-form
             entity="aS.student"
-            submit-fn="aS.modalAction(aS.student)"
+            submit-fn="aS.modalAction"
         ></student-form>
     </tm-modal>
 </div>

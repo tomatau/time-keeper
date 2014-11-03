@@ -1,6 +1,9 @@
 'use strict';
 angular.module('indexeddbGateways')
-    .factory('indexeddbCoursesGateway', function($q, idbGateway){
+    .factory('indexeddbCoursesGateway', function(
+        $q,
+        idbGateway
+    ){
         var coursesPromise = idbGateway('Courses');
         return {
             save: function(course){

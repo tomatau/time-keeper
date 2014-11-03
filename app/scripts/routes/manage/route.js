@@ -8,9 +8,7 @@ angular.module('routes')
                 controller: 'manageCtrl',
                 controllerAs: 'manage',
                 resolve: {
-                    cl: function(syncCourseList){
-                        return syncCourseList();
-                    }
+                    cl: function(syncCourseList){ return syncCourseList(); }
                 }
             })
             .state('manage', {
@@ -30,7 +28,7 @@ angular.module('routes')
         var vm = this;
         vm.courseList = CourseList.get();
     })
-    .controller('addCourseCtrl', function(Course, CourseList, addCourse, closeModal){
+    .controller('addCourseCtrl', function(Course, addCourse, closeModal){
         var vm = this;
         vm.course = Course.get();
         vm.addModalId = 'create-course-modal';
@@ -41,11 +39,14 @@ angular.module('routes')
                 });
         };
     })
-    .controller('addStudentCtrl', function(Student){
+    .controller('addStudentCtrl', function(Student, addStudent, closeModal){
         var vm = this;
         vm.student = Student.get();
         vm.addModalId = 'create-student-modal';
-        vm.modelAction = function modelAction(){
-            return;
+        vm.modalAction = function modalAction(){
+            return addStudent()
+                .then(function(){
+                    closeModal(vm.addModalId);
+                });
         };
     });

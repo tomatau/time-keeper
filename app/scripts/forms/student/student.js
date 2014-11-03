@@ -7,10 +7,10 @@ angular.module('forms')
         firstSessionValidator
     ){
         var defaults = {
-            firstSession: moment(),
-            sessionTime: moment().startOf('day').add(12, 'hours'),
+            firstSession: moment().toDate(),
+            sessionTime: moment().startOf('day').add(12, 'hours').toDate(),
             timezone: 'ET',
-            weeklyHours: 10,
+            numSessions: 12,
         };
 
         var daysOfWeek = [{

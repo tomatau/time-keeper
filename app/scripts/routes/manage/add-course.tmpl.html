@@ -1,13 +1,20 @@
 <div class="add-course" ng-controller="addCourseCtrl as aC">
-    <button type="button" ng-click="openModal(aC.addModalId)" class="btn btn-primary">Add Course</button>
-    <span class="help-block">Add a course that students can belong to. Students can only be in one course at one time; if the student is enrolled for 2 courses, create two students.</span>
-    <tm-modal 
-        ident="{{ aC.addModalId }}" 
-        header="Create Course" 
+    <button
+        type="button"
+        ng-click="openModal(aC.addModalId)"
+        class="btn btn-primary">
+        Add Course
+    </button>
+    <span class="help-block">
+        Add a course that students can belong to. Students can only be in one course at one time; if the student is enrolled for 2 courses, create two students.
+    </span>
+    <tm-modal
+        ident="{{ aC.addModalId }}"
+        header="Create Course"
         classes="modal-sm"
         focus-el="#courseName"
     >
-        <course-form 
+        <course-form
             entity="aC.course"
             submit-fn="aC.modalAction"
         ></course-form>

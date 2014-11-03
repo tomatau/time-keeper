@@ -1,11 +1,15 @@
 'use strict';
 angular.module('indexeddbGateways', [ ])
-    .factory('idbGateway', function($q, $window, ENV){
-        var stores = [],
-            def = $q.defer();
+    .factory('idbGateway', function(
+        $q,
+        $window,
+        ENV
+    ){
+        var stores = [];
         if (ENV.name === 'DEV') $window.stores = stores;
 
         return function idbGateway(name){
+            var def = $q.defer();
             name = name || 'Root';
             stores[name] = new IDBStore( angular.extend({
                     storeName: name,
@@ -16,8 +20,16 @@ angular.module('indexeddbGateways', [ ])
                     onStoreReady: function(){
                         def.resolve(stores[name]);
                     }
-                }, { storeName: name }) 
+                }, { storeName: name })
             );
             return def.promise;
         };
+    })
+    .factory('parseDates', function(){
+        return function parseDates(entity){
+            _.each(entity, function(val, key){
+                if ( _.isDate(val) ) entity[key] = val.toJSON();
+            });
+            return entity;
+        }
     });
