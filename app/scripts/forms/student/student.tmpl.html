@@ -1,27 +1,56 @@
-<form name="studentForm" class="">
+<form name="studentForm" ng-submit="form.submit()" novalidate>
+    <fieldset ng-if="form.entity.id != null"  class="form-group required">
+        <label for="id" class="control-label">Student Id</label>
+        <input ng-if="form.entity.id != null"
+            ng-model="form.entity.id"
+            type="number"
+            disabled="disabled"
+            name="id"
+            class="form-control">
+    </fieldset>
     <div class="row">
         <fieldset class="form-group col-sm-6 required">
-            <label for="name" class="control-label">Name</label>
-            <input type="text" name="name" id="student-name" required class="form-control">
+            <label for="name" class="control-label">
+                Name
+            </label>
+            <input ng-model="form.entity.name"
+                id="student-name"
+                type="text"
+                name="name"
+                ng-model-options="form.modelOptions"
+                required
+                class="form-control">
+            <div ng-messages="studentForm.name.$error"
+                ng-if="studentForm.$submitted || studentForm.name.$touched">
+                <p ng-message="required" class="text-danger">
+                    A Studnet name is required
+                </p>
+            </div>
         </fieldset>
         <fieldset class="form-group col-sm-6 required">
-            <label for="email" class="control-label">Email</label>
-            <input 
-                type="email" 
-                name="email" 
-                required 
+            <label for="email" class="control-label">
+                Email
+            </label>
+            <input ng-model="form.entity.email"
+                id="email"
+                type="email"
+                name="email"
+                ng-model-options="form.modelOptions"
+                required
                 class="form-control">
         </fieldset>
     </div>
     <div class="row">
         <fieldset class="form-group col-sm-4 required">
-            <label for="first-session" class="control-label">First Session</label>
+            <label for="first-session" class="control-label">
+                First Session
+            </label>
             <div class="input-group">
-                <input 
-                    type="text" 
-                    required 
-                    class="form-control" 
-                    name="first-session" 
+                <input
+                    type="text"
+                    required
+                    class="form-control"
+                    name="first-session"
                     ng-model="form.entity.firstSession"
                     bs-datepicker>
                 <span class="input-group-addon">
@@ -31,9 +60,9 @@
         </fieldset>
         <fieldset class="form-group col-sm-4 required">
             <label for="session-day" class="control-label">Session Day</label>
-            <select 
-                name="session-day" 
-                required 
+            <select
+                name="session-day"
+                required
                 class="form-control">
                 <option value="monday">Monday</option>
                 <option value="tuesday">Tuesday</option>
@@ -46,10 +75,10 @@
             <label for="session-time" class="control-label">Session Time</label>
             <div class="input-group">
                 <input
-                    type="text" 
-                    required 
-                    class="form-control" 
-                    name="session-time" 
+                    type="text"
+                    required
+                    class="form-control"
+                    name="session-time"
                     ng-model="form.entity.sessionTime"
                     bs-timepicker>
                 <span class="input-group-addon">
@@ -62,10 +91,10 @@
         <fieldset class="form-group col-sm-3 required">
             <label for="course" class="control-label">Course</label>
             <select
-                name="course" 
-                required 
+                name="course"
+                required
                 ng-model="form.entity.course"
-                ng-options="c.id as c.name+'v'+c.version 
+                ng-options="c.name+'v'+c.version
                             for c in form.courseList | orderBy:'name' track by c.id"
                 class="form-control">
                 <option value="-">--</option>
@@ -99,7 +128,7 @@
             <input type="text" name="google" class="form-control">
         </fieldset>
     </div>
-    
+
     <fieldset class="form-group">
         <label for="background" class="control-label">Background</label>
         <textarea name="background" class="form-control" rows="5"></textarea>

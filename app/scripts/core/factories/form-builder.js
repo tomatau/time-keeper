@@ -34,10 +34,7 @@ angular.module('core')
                         });
                     });
 
-                    this.modelOptions = {
-                        updateOn: 'default blur', 
-                        debounce: {'default': 200, 'blur': 0}
-                    };
+                    this.modelOptions = { updateOn: 'default blur', debounce: { 'default': 200, 'blur': 0 } };
                 }
             }, formDirective);
         };

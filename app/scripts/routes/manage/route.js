@@ -21,7 +21,7 @@ angular.module('routes')
                         templateUrl: ROUTESURL + 'manage/add-course.tmpl.html',
                     },
                     addStudent: {
-                        templateUrl: ROUTESURL + 'manage/add-student.tmpl.html'
+                        templateUrl: ROUTESURL + 'manage/add-student.tmpl.html',
                     }
                 }
             });
@@ -41,8 +41,11 @@ angular.module('routes')
                 });
         };
     })
-    .controller('addStudentCtrl', function(){
+    .controller('addStudentCtrl', function(Student){
         var vm = this;
-        vm.student = {};
+        vm.student = Student.get();
         vm.addModalId = 'create-student-modal';
+        vm.modelAction = function modelAction(){
+            return;
+        };
     });
