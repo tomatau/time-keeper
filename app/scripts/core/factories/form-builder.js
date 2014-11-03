@@ -15,7 +15,7 @@ angular.module('core')
                     if (this.entity == null)
                         throw new Error('Form requires entity');
 
-                    var original = angular.copy(this.entity);
+                    var original = this.original = angular.copy(this.entity);
 
                     this.submit = function(){
                         this.submitFn()()

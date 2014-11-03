@@ -55,41 +55,57 @@
                 First Session
             </label>
             <div class="input-group">
-                <input
+                <input ng-model="form.entity.firstSession"
+                    id="first-session"
                     type="text"
+                    name="firstSession"
+                    bs-datepicker
+                    data-autoclose="true"
+                    data-date-format="dd-MM-yyyy"
+                    data-min-date="today"
                     required
-                    class="form-control"
-                    name="first-session"
-                    ng-model="form.entity.firstSession"
-                    bs-datepicker>
+                    class="form-control">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
             </div>
+            <div ng-if="studentForm.$submitted || studentForm.firstSession.$touched">
+                <p ng-if="studentForm.firstSession.$error.required" class="text-danger">
+                    The first session date is required
+                </p>
+                <p ng-if="studentForm.$error.firstSession" class="text-danger">
+                    Must be a future date
+                </p>
+            </div>
         </fieldset>
         <fieldset class="form-group col-sm-4 required">
-            <label for="session-day" class="control-label">Session Day</label>
-            <select
-                name="session-day"
+            <label for="session-day" class="control-label">
+                Session Day
+            </label>
+            <!-- Options not working with object -->
+            <button ng-model="form.entity.sessionDay"
+                id="session-day"
+                type="button"
+                name="sessionDay"
+                bs-select
+                data-placeholder="--"
+                ng-options="d.day as d.label for d in form.daysOfWeek"
                 required
-                class="form-control">
-                <option value="monday">Monday</option>
-                <option value="tuesday">Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-            </select>
+                class="btn btn-default form-control">
+            </button>
         </fieldset>
         <fieldset class="form-group col-sm-4 required">
-            <label for="session-time" class="control-label">Session Time</label>
+            <label for="session-time" class="control-label">
+                Session Time
+            </label>
             <div class="input-group">
-                <input
+                <input ng-model="form.entity.sessionTime"
+                    id="first-session"
                     type="text"
+                    name="sessionTime"
                     required
-                    class="form-control"
-                    name="session-time"
-                    ng-model="form.entity.sessionTime"
-                    bs-timepicker>
+                    bs-timepicker
+                    class="form-control">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -99,15 +115,17 @@
     <div class="row">
         <fieldset class="form-group col-sm-3 required">
             <label for="course" class="control-label">Course</label>
-            <select
+            <button ng-model="form.entity.course"
+                id="session-day"
+                type="button"
                 name="course"
+                bs-select
                 required
-                ng-model="form.entity.course"
+                data-placeholder="--"
                 ng-options="c.name+'v'+c.version
                             for c in form.courseList | orderBy:'name' track by c.id"
-                class="form-control">
-                <option value="-">--</option>
-            </select>
+                class="btn btn-default form-control">
+            </button>
         </fieldset>
         <fieldset class="form-group col-sm-3 required">
             <label for="timezone" class="control-label">Timezone</label>
@@ -130,11 +148,17 @@
     <div class="row">
         <fieldset class="form-group col-sm-6">
             <label for="github" class="control-label">Github</label>
-            <input type="text" name="github" class="form-control">
+            <div class="input-group">
+                <span class="input-group-addon">github.com</span>
+                <input type="text" name="github" class="form-control">
+            </div>
         </fieldset>
         <fieldset class="form-group col-sm-6">
             <label for="google" class="control-label">Google</label>
-            <input type="text" name="google" class="form-control">
+            <div class="input-group">
+                <span class="input-group-addon">plus.google.com</span>
+                <input type="text" name="google" class="form-control">
+            </div>
         </fieldset>
     </div>
 
