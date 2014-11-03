@@ -9,25 +9,25 @@ angular.module('forms')
         var defaults = {
             firstSession: moment(),
             sessionTime: moment().startOf('day').add(12, 'hours'),
-            timezone: "ET",
+            timezone: 'ET',
             hoursPerWeek: 10,
         };
 
         var daysOfWeek = [{
                 day: 'monday',
-                label : "Monday"
+                label : 'Monday'
             },{
                 day: 'tuesday',
-                label : "Tuesday"
+                label : 'Tuesday'
             },{
                 day: 'wednesday',
-                label : "Wednesday"
+                label : 'Wednesday'
             },{
                 day: 'thursday',
-                label : "Thursday"
+                label : 'Thursday'
             },{
                 day: 'friday',
-                label : "Friday"
+                label : 'Friday'
             }];
 
         return formBuilder({
