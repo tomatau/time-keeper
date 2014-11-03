@@ -23,7 +23,7 @@
             <div ng-messages="studentForm.name.$error"
                 ng-if="studentForm.$submitted || studentForm.name.$touched">
                 <p ng-message="required" class="text-danger">
-                    A Studnet name is required
+                    A Student name is required
                 </p>
             </div>
         </fieldset>
@@ -38,6 +38,15 @@
                 ng-model-options="form.modelOptions"
                 required
                 class="form-control">
+            <div ng-messages="studentForm.email.$error"
+                ng-if="studentForm.$submitted || studentForm.email.$touched">
+                <p ng-message="required" class="text-danger">
+                    A Student email is required
+                </p>
+                <p ng-message="email" class="text-danger">
+                    Email address please
+                </p>
+            </div>
         </fieldset>
     </div>
     <div class="row">
