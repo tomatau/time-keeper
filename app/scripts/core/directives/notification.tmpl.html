@@ -1,48 +1,7 @@
 <div id="notifications">
-    <div 
+    <div
         ng-repeat="n in noti.list track by n.id"
         class="notification alert alert-{{::n.type}}">
-        <a href="#" class="close" data-dismiss="alert">&times;</a>
-        {{::n.message}}
+        <span ng-bind-html="::n.message"></span>
     </div>
 </div>
-<style>
-    #notifications {
-        position: fixed;
-        margin: 10px;
-        bottom: 10px;
-        right: 0;
-        z-index: 99999;
-    }
-
-   .notification {
-        -webkit-transition: 1s linear all; /* Chrome */
-        transition: 0.2s linear all;
-        position: relative;
-        bottom: 0em;
-    }
-   
-   .notification.ng-leave,
-   .notification.ng-enter-active {
-        opacity: 1;
-    }
-
-   .notification.ng-leave-active,
-   .notification.ng-enter {
-        opacity: 0;
-    }
-
-   .notification.ng-enter {
-        bottom: 0em;
-   }
-   .notification.ng-enter-active {
-        bottom: -20em;
-   }
-
-   .notification.ng-leave {
-        bottom: 0em;
-   }
-   .notification.ng-leave-active {
-        bottom: -4em;
-   }
-</style>

@@ -1,30 +1,24 @@
 'use strict';
 angular.module('core')
-    // .factory('openModal', function(){
-    //     return function(ident){
-    //         angular.element('#' + ident).modal('show');
-    //     };
-    // })
-    // .factory('closeModal', function(){
-    //     return function(ident){
-    //         angular.element('#' + ident).modal('hide');
-    //     };
-    // })
-    // .run(function($rootScope, openModal, closeModal){
-    //     $rootScope.openModal = openModal;
-    //     $rootScope.closeModal = closeModal;
-    // })
-    .factory('notify', function(Notifications){
-        return function notify(alert){
-
-        }
+    .factory('notify', function(Notifications, uuid) {
+        // types:
+        //  success, info, warning, danger
+        return function notify(message, type){
+            Notifications.push({
+                id: uuid(),
+                type: type || 'info',
+                message: message,
+            });
+        };
     })
     .factory('Notifications', function(){
         var list = [];
         return list;
     })
-    .directive('tmNotifications', function(COREURL, Notifications){
-
+    .directive('tmNotifications', function(
+        COREURL,
+        Notifications
+    ){
         return {
             templateUrl: COREURL + 'directives/notification.tmpl.html',
             scope: {},
@@ -39,11 +33,12 @@ angular.module('core')
                                 noti.list.push(Notifications.pop());
                                 $timeout(function(){
                                     noti.list.shift();
-                                }, 2000);
-                            }, 1000);
+                                }, 5000);
+                            }, 100);
                         }
-                    })
+                    });
                 noti.list = [];
             }
         };
-    });
+    })
+;

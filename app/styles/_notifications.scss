@@ -1,0 +1,38 @@
+
+#notifications {
+    position: fixed;
+    margin: 10px;
+    bottom: 10px;
+    right: 0;
+    z-index: 99999;
+}
+
+.notification {
+    -webkit-transition: 1s linear all; /* Chrome */
+    transition: 0.2s linear all;
+    position: relative;
+    bottom: 0em;
+
+    .ng-leave,
+    .ng-enter-active {
+        opacity: 1;
+    }
+    .ng-leave-active,
+    .ng-enter {
+        opacity: 0;
+    }
+
+    .ng-enter {
+        bottom: 0em;
+    }
+    .ng-enter-active {
+        bottom: -20em;
+    }
+
+    .ng-leave {
+        bottom: 0em;
+    }
+    .ng-leave-active {
+        bottom: -4em;
+    }
+}

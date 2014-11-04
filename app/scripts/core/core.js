@@ -1,4 +1,5 @@
 angular.module('core', [
-        'ngAnimate'
+        'ngAnimate',
+        'ngSanitize'
     ])
     .constant('COREURL', 'scripts/core/');
