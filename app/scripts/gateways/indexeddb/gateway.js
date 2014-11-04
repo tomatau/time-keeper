@@ -31,5 +31,5 @@ angular.module('indexeddbGateways', [ ])
                 if ( _.isDate(val) ) entity[key] = val.toJSON();
             });
             return entity;
-        }
+        };
     });
