@@ -32,9 +32,9 @@ angular.module('core')
                 if ( this.id == null ) // wtf...
                     throw new Error('modal requires and id');
             },
-            link: function(scope, iEl, iAtt, crtl){
+            link: function(scope, iEl, iAtt, ctrl){
                 iEl.on('shown.bs.modal', function(){
-                    angular.element( crtl.focusEl ).focus();
+                    angular.element( ctrl.focusEl ).focus();
                 });
                 scope.$on('$destroy', function(){
                     iEl.off('shown.bs.modal');

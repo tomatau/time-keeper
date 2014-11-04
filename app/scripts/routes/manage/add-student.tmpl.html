@@ -13,12 +13,12 @@
         Create a student who will belong to a course, this will add them to the schedule; you will be required to state their start date and session times.
     </span>
     <tm-modal
-        ident="{{ aS.addModalId }}"
+        ident="{{::aS.addModalId }}"
         header="Create Student"
         focus-el="#student-name"
     >
         <student-form
-            entity="aS.student"
+            entity="::aS.student"
             submit-fn="aS.modalAction"
         ></student-form>
     </tm-modal>

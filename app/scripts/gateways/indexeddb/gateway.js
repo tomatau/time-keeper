@@ -6,7 +6,7 @@ angular.module('indexeddbGateways', [ ])
         ENV
     ){
         var stores = [];
-        if (ENV.name === 'DEV') $window.stores = stores;
+        if ( ENV.DEV ) $window.stores = stores;
 
         return function idbGateway(name){
             var def = $q.defer();

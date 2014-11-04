@@ -11,7 +11,7 @@
     <ul>
         <li ng-if="manage.courseList.length == 0">No courses (ಠ_ಠ)</li>
         <li ng-repeat="c in manage.courseList track by c.id">
-            {{ c.name }} - v{{ c.version }}
+            {{::c.name }} - v{{::c.version }}
         </li>
     </ul>
 </section>

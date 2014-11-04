@@ -1,19 +1,27 @@
-<div class="modal fade" id="{{ modal.id }}" tabindex="-1" role="dialog">
-    <div class="modal-dialog {{ modal.classes }}">
+<div class="modal fade" id="{{::modal.id }}" tabindex="-1" role="dialog">
+    <div class="modal-dialog {{::modal.classes }}">
         <div class="modal-content">
             <header class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
-                <h4 class="modal-title" ng-if="modal.header">{{ modal.header }}</h4>
+                <h4 class="modal-title" ng-if="modal.header">
+                    {{::modal.header }}
+                </h4>
             </header>
             <div class="modal-body" ng-transclude></div>
             <footer class="modal-footer" ng-if="modal.buttonText">
-                <button type="button" class="btn btn-default" data-dismiss="modal">
+                <button 
+                    type="button" 
+                    class="btn btn-default" 
+                    data-dismiss="modal">
                     Close
                 </button>
-                <button type="button" class="btn btn-primary" ng-click="modal.buttonFn()">
-                    {{ modal.buttonText }}
+                <button 
+                    type="button" 
+                    class="btn btn-primary" 
+                    ng-click="modal.buttonFn()">
+                    {{::modal.buttonText }}
                 </button>
             </footer>
         </div>
