@@ -15,4 +15,5 @@ angular.module('routes', [
     })
     .config(function($urlRouterProvider){
         $urlRouterProvider.otherwise('/');
-    });
+    })
+;

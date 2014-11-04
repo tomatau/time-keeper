@@ -4,11 +4,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+@import "mixins";
 @import "tweaks";
 @import "forms";
 @import "students";
 @import "week";
 @import "notifications";
+@import "loading-circles";
 
 .browsehappy {
     margin: 0.2em 0;

@@ -1,0 +1,17 @@
+@mixin keyframe($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin translateZ($val){
+    -webkit-transform: translateZ($val);
+    -ms-transform: translateZ($val);
+    transform: translateZ($val);
+}

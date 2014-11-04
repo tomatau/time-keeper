@@ -1,0 +1,41 @@
+$boxHeight: 20px;
+$boxPosition: 30px;
+
+.loader {
+    position: relative;
+    width: $boxPosition * 3;
+    height: $boxHeight;
+    margin: 0 auto;
+
+    & > div {
+        position: absolute;
+        top: 0;
+        background-color: #FFF;
+        width: $boxHeight;
+        height: $boxHeight;
+        @include animation(bounce_loader .5s infinite);
+        @include scale(.3);
+    }
+    #box_1 {
+        left: 0;
+        @include animation-delay(.25s);
+    }
+    #box_2 {
+        left: $boxPosition;
+    }
+    #box_3 {
+        @include animation-delay(.25s);
+        left: $boxPosition * 2;
+    }
+}
+
+@include keyframe(bounce_loader) {
+    50% {
+        transform: scale(1);
+        background-color: #000000;
+    }
+    0%, 100% {
+        transform: scale(.3);
+        background-color: #FFFFFF;
+    }
+}

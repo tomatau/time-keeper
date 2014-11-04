@@ -1,0 +1,33 @@
+$boxHeight: 20px;
+$boxPosition: 30px;
+
+.loader {
+    margin: 3em auto;
+    font: {
+        size: .65em;
+    };
+    position: relative;
+    text-indent:-9999em;
+    border-top:.6em solid rgba(0,0,0,.2);
+    border-right:.6em solid rgba(0,0,0,.2);
+    border-bottom:.6em solid rgba(0,0,0,.2);
+    border-left:.6em solid rgba(0,0,0,1);
+    @include scale(.3);
+    @include translateZ(0);
+    @include animation(circle_loader .4s infinite linear);
+
+    &, &:after {
+        border-radius: 50%;
+        width: 5em;
+        height: 5em;
+    }
+}
+
+@include keyframe(circle_loader) {
+    0% {
+        @include rotate(0deg);
+    }
+    100% {
+        @include rotate(360deg);
+    }
+}
