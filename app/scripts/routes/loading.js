@@ -5,7 +5,7 @@ angular.module('routes')
             templateUrl: ROUTESURL + 'loading-circle.tmpl.html'
         });
     })
-    .run(function ($rootScope, $state, $timeout, $urlRouter) {
+    .run(function ($rootScope, $state, $timeout) {
         function hasResolve(toState){
             do {
                 if (toState.resolve) return true;

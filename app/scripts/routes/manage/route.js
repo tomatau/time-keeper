@@ -5,8 +5,8 @@ angular.module('routes')
             .state('manageLayout', {
                 abstract: true,
                 templateUrl: ROUTESURL + 'manage/manage.tmpl.html',
-                controller: 'manageCtrl',
                 controllerAs: 'manage',
+                controller: 'manageCtrl',
                 resolve: {
                     cl: function(syncCourseList){ return syncCourseList(); }
                 }
