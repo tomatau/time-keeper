@@ -10,7 +10,7 @@ angular.module('models')
         };
 
         BaseCollection.prototype.set = function(newList) {
-            console.table(newList);
+            // console.table(newList);
             this.reset();
             angular.extend(this.list, newList);
         };

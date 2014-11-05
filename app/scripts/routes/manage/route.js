@@ -8,7 +8,9 @@ angular.module('routes')
                 controllerAs: 'manage',
                 controller: 'manageCtrl',
                 resolve: {
-                    studentCount: 'resolve.studentCount'
+                    studentCount: function(resolveStudentCount){
+                        return resolveStudentCount();
+                    }
                 }
             })
             .state('manage', {

@@ -1,16 +1,18 @@
 'use strict';
 angular.module('routes')
-    .factory('resolve.studentCount', function(
+    .factory('resolveStudentCount', function(
         $q,
         syncCourseList,
         syncStudentList,
         CourseList,
         StudentList
     ){
-        return $q.all( [ syncCourseList(), syncStudentList() ] )
-            .then(function () {
-                _.each(StudentList.get(), function(student){
-                    CourseList.addStudent(student.course);
+        return function(){
+            return $q.all( [ syncCourseList(), syncStudentList() ] )
+                .then(function () {
+                    _.each(StudentList.get(), function(student){
+                        CourseList.addStudent(student.course);
+                    });
                 });
-            });
+        };
     });

@@ -4,8 +4,8 @@ angular.module('models')
         var CourseList = BaseCollection.extend({
             addStudent: function(courseId){
                 var course = this.get(courseId);
-                ( course.studentCount != null )
-                    ? course.studentCount ++ : course.studentCount = 1;
+                course.studentCount = ( course.studentCount != null )
+                    ? course.studentCount + 1 : 1;
             }
         });
         return new CourseList();
