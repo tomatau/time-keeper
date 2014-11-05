@@ -8,7 +8,20 @@ angular.module('routes')
                 controllerAs: 'manage',
                 controller: 'manageCtrl',
                 resolve: {
-                    cl: function(syncCourseList){ return syncCourseList(); }
+                    studentCount: function(
+                        $q,
+                        syncCourseList,
+                        syncStudentList,
+                        CourseList,
+                        StudentList
+                    ){
+                        return $q.all([syncCourseList(), syncStudentList()])
+                            .then(function () {
+                                _.each(StudentList.get(), function(student){
+                                    CourseList.addStudent(student.course);
+                                });
+                            });
+                    },
                 }
             })
             .state('manage', {
@@ -17,16 +30,21 @@ angular.module('routes')
                 views: {
                     addCourse: {
                         templateUrl: ROUTESURL + 'manage/add-course.tmpl.html',
+                        controller: 'addCourseCtrl',
+                        controllerAs: 'aC',
                     },
                     addStudent: {
                         templateUrl: ROUTESURL + 'manage/add-student.tmpl.html',
+                        controller: 'addStudentCtrl',
+                        controllerAs: 'aS',
                     }
                 }
             });
     })
-    .controller('manageCtrl', function(CourseList){
+    .controller('manageCtrl', function(CourseList, StudentList){
         var vm = this;
         vm.courseList = CourseList.get();
+        vm.studentList = StudentList.get();
     })
     .controller('addCourseCtrl', function(Course, addCourse, closeModal){
         var vm = this;

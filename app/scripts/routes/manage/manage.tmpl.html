@@ -7,11 +7,29 @@
         <div ui-view="addStudent"></div>
     </div>
     <hr>
-    <h5>Course List</h5>
-    <ul>
-        <li ng-if="manage.courseList.length == 0">No courses (ಠ_ಠ)</li>
-        <li ng-repeat="c in manage.courseList track by c.id">
-            {{::c.name }} - v{{::c.version }}
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Course List</h5>
+            <ul class="list-group">
+                <li class="list-group-item" ng-if="manage.courseList.length == 0">
+                    No courses (ಠ_ಠ)
+                </li>
+                <li class="list-group-item" ng-repeat="c in manage.courseList track by c.id">
+                    <span class="badge">{{ c.studentCount || 0 }}</span>
+                    {{::c.name }} - v{{::c.version }}
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h5>Settings</h5>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Total Courses</strong>: {{ manage.courseList.length }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Total Students</strong>: {{ manage.studentList.length }}
+                </li>
+            </ul>
+        </div>
+    </div>
 </section>
