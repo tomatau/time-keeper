@@ -6,13 +6,6 @@ angular.module('forms')
         CourseList,
         firstSessionValidator
     ){
-        var defaults = {
-            firstSession: moment().toDate(),
-            sessionTime: moment().startOf('day').add(12, 'hours').toDate(),
-            timezone: 'ET',
-            numSessions: 12,
-        };
-
         var daysOfWeek = [{
                 day: 'monday',
                 label : 'Monday'
@@ -31,6 +24,12 @@ angular.module('forms')
             }];
 
         return formBuilder({
+            defaults: {
+                firstSession: moment().toDate(),
+                sessionTime: moment().startOf('day').add(12, 'hours').toDate(),
+                timezone: 'ET',
+                numSessions: 12,
+            },
             templateUrl: FORMSURL + 'student/student.tmpl.html',
             formName: 'studentForm',
             validators: {
@@ -39,22 +38,6 @@ angular.module('forms')
             link: function(scope, iEl, iAttr, ctrl){
                 ctrl.courseList = CourseList.get();
                 ctrl.daysOfWeek = daysOfWeek;
-                if (ctrl.original.id == null) {
-                    angular.extend(ctrl.entity, defaults);
-                }
             }
         });
     });
-        // Validators
-        // ###########
-        // name :
-        // email : email
-        // first-session: date, when create/future, when edit (can only change to make future)
-        // session-day: weekday
-        // session-time: hh:mm p
-        // course: course-exists
-        // timezone:
-        // hours:
-        // os:
-        // github & google: url
-        //

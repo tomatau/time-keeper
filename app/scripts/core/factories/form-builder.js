@@ -1,7 +1,7 @@
 'use strict';
 angular.module('core')
     .factory('formBuilder', function(){
-        return function(formDirective){
+        return function(formDDO){
             return angular.extend({}, {
                 scope: {
                     entity: '=entity',
@@ -20,22 +20,27 @@ angular.module('core')
                     this.submit = function(){
                         this.submitFn()()
                             .then(function(){
-                                $scope[formDirective.formName].$setPristine();
-                                $scope[formDirective.formName].$setUntouched();
+                                $scope[formDDO.formName].$setPristine();
+                                $scope[formDDO.formName].$setUntouched();
                             });
                     };
 
-                    $scope.$watchCollection('form.entity', function validateCourse(entity){
-                        if ( $scope[formDirective.formName].$pristine ) return true;
-                        angular.forEach(formDirective.validators, function(fn, name){
-                            $scope[formDirective.formName].$setValidity( name,
+                    $scope.$watchCollection('form.entity', function validate(entity){
+                        if ( $scope[formDDO.formName].$pristine ) {
+                            if ( entity.id == null )
+                                angular.extend( $scope.form.entity, formDDO.defaults );
+                            return true;
+                        }
+                        angular.forEach(formDDO.validators, function(fn, name){
+                            $scope[formDDO.formName].$setValidity( name,
                                 fn(entity, original)
                             );
                         });
                     });
 
-                    this.modelOptions = { updateOn: 'default blur', debounce: { 'default': 200, 'blur': 0 } };
+                    this.modelOptions =
+                    { updateOn: 'default blur', debounce: { 'default': 200, 'blur': 0 } };
                 }
-            }, formDirective);
+            }, formDDO);
         };
     });

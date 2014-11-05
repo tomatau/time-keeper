@@ -10,11 +10,14 @@ angular.module('models')
         };
 
         BaseCollection.prototype.set = function(newList) {
+            console.table(newList);
             this.reset();
             angular.extend(this.list, newList);
         };
 
-        BaseCollection.prototype.get = function() {
+        BaseCollection.prototype.get = function(id) {
+            if ( id != null )
+                return _.findWhere(this.list, { id: Number(id) });
             return this.list;
         };
 
