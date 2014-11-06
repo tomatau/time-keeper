@@ -1,9 +1,8 @@
 'use strict';
 angular.module('core')
     .factory('notify', function(Notifications, uuid) {
-        // types:
-        //  success, info, warning, danger
-        return function notify(message, type){
+        // types: success, info, warning, danger
+        return function notify(type, message){
             Notifications.push({
                 id: uuid(),
                 type: type || 'info',
@@ -12,8 +11,7 @@ angular.module('core')
         };
     })
     .factory('Notifications', function(){
-        var list = [];
-        return list;
+        return [];
     })
     .directive('tmNotifications', function(
         COREURL,
