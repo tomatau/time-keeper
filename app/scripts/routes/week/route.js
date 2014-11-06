@@ -8,8 +8,22 @@ angular.module('routes')
                 controllerAs: 'week',
                 controller: 'weekCtrl',
                 resolve: {
-                    students: function(syncStudentList){
-                        return syncStudentList();
+                    students: function(
+                        syncStudentList,
+                        setStudentsCourse,
+                        setStudentsSessions,
+                        setActiveStudents,
+                        setStudentsThisWeek
+                    ){
+                        return syncStudentList()
+                        // when the students are added and removed
+                        // when sessions are added
+                        // courses won't be added here and if they are.. no students
+                        // this will need to be updated
+                            .then(setStudentsCourse)
+                            .then(setStudentsSessions)
+                            .then(setActiveStudents)
+                            .then(setStudentsThisWeek);
                     },
                     courses: function(syncCourseList){
                         return syncCourseList();
@@ -36,48 +50,9 @@ angular.module('routes')
     .controller('weekCtrl', function(){ })
     .controller('nextSessionsCtrl', function(){ })
     .controller('weekSessionsCtrl', function(
-        StudentList,
-        CourseList,
-        SessionList
+        StudentsThisWeek
     ){
-        var vm = this,
-            studentList = StudentList.get();
-
-        var thisWeek = moment();
-
-        function getThisWeeksSession(student){
-            var sessionsHad = student.sessions.length - student.numSessions;
-            var firstSession = moment(student.firstSession);
-            var thisWeeksSession;
-
-            // if there are some sessions remaining
-            // there should be a session this week
-            //
-
-            // if the first session week is the same as the current week
-            // it's their first week!
-            if ( thisWeek.week() == firstSession.week() ) {
-                // select the day of the week
-                thisWeeksSession = angular.copy(firstSession)
-                    .day(student.sessionDay).toDate();
-            } else if ( thisWeek.week() > firstSession.week() ) {
-                // first session in past
-                thisWeeksSession = angular.copy(firstSession)
-                    .add(sessionsHad, 'weeks')
-                    .day(student.sessionDay).toDate();
-            }
-            return thisWeeksSession;
-
-            // console.log(thisWeek.week())
-            // console.log()
-        }
-
-        _.each(studentList, function(student, id){
-            studentList[id].course = CourseList.get( student.course );
-            studentList[id].sessions = SessionList.getStudentSessions( student.id );
-            studentList[id].weeksSession = getThisWeeksSession( student );
-        });
-        console.table(studentList);
-        vm.studentList = studentList;
+        var vm = this;
+        vm.studentList = StudentsThisWeek.get();
     })
 ;

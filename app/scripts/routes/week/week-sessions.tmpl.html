@@ -3,39 +3,38 @@
         <tr>
             <th>Student</th>
             <th>Time</th>
+            <th>Day</th>
+            <th>Date</th>
             <th>Session #</th>
             <th>Course</th>
         </tr>
     </thead>
     <tbody>
+        <tr ng-if="!wS.studentList.length">
+            <td colspan="6">
+                No Students Homeboy
+            </td>
+        </tr>
         <tr
-            ng-repeat="s in wS.studentList"
+            ng-repeat="s in wS.studentList | orderBy: 'weeksSession' track by s.id"
             class="student">
             <td class="name">
                 {{::s.name }}
             </td>
             <td class="time">
-                {{::s.weeksSession | date }}
+                {{::s.weeksSession | date : 'HH:mm' }}
+            </td>
+            <td class="day">
+                {{::s.weeksSession | date : 'EEE' }}
+            </td>
+            <td class="date">
+                {{::s.weeksSession | date : 'd MMM yyyy' }}
             </td>
             <td class="sessions">
-                {{::(s.sessions.length + 1) }} / {{::s.numSessions }}
+                {{::s.sessions.length + 1 }} / {{::s.numSessions }}
             </td>
             <td class="course">
                 {{::s.course.name + "v" + s.course.version }}
-            </td>
-        </tr>
-        <tr class="student">
-            <td class="name">
-                <a href="#">Judy</a>
-            </td>
-            <td class="time">
-                15:00 - Wed, 4th
-            </td>
-            <td class="sessions">
-                1 / 13
-            </td>
-            <td class="course">
-                ANG002
             </td>
         </tr>
     </tbody>
