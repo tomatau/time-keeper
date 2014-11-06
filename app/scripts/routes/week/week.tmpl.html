@@ -1,1 +1,27 @@
-list of week stuff
+<section class="next-sessions">
+    <header>
+        <h4>Next Sessions</h4>
+        <form name="next-sessions form-horizontal">
+            <fieldset class="form-group">
+                <label class="col-sm-2 control-label" for="num-shown">Show:</label>
+                <div class="col-sm-10">
+                    <select class="form-control input-sm" name="num-shown">
+                        <option value="1">1</option>
+                        <option value="2" selected="selected">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </fieldset>
+        </form>
+    </header>
+    <div class="next-sessions-table" ui-view="nextSessions">
+    </div>
+</section>
+<section class="week-sessions">
+    <header>
+        <h4>This Week</h4>
+    </header>
+    <div class="week-sessions-table" ui-view="weekSessions">
+    </div>
+</section>

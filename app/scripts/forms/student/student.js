@@ -4,25 +4,9 @@ angular.module('forms')
         FORMSURL,
         formBuilder,
         CourseList,
+        Weekdays,
         firstSessionValidator
     ){
-        var daysOfWeek = [{
-                day: 'monday',
-                label : 'Monday'
-            },{
-                day: 'tuesday',
-                label : 'Tuesday'
-            },{
-                day: 'wednesday',
-                label : 'Wednesday'
-            },{
-                day: 'thursday',
-                label : 'Thursday'
-            },{
-                day: 'friday',
-                label : 'Friday'
-            }];
-
         return formBuilder({
             defaults: {
                 firstSession: moment().toDate(),
@@ -37,7 +21,7 @@ angular.module('forms')
             },
             link: function(scope, iEl, iAttr, ctrl){
                 ctrl.courseList = CourseList.get();
-                ctrl.daysOfWeek = daysOfWeek;
+                ctrl.daysOfWeek = Weekdays;
             }
         });
     });

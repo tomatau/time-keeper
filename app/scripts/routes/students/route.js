@@ -28,8 +28,7 @@ angular.module('routes')
                 }
             });
     })
-    .controller('studentsCtrl', function(){
-    })
+    .controller('studentsCtrl', function(){ })
     .controller('studentListCtrl', function(StudentList, CourseList){
         var vm = this,
             studentList = StudentList.get();
