@@ -1,19 +1,18 @@
 'use strict';
 angular.module('useCases')
     .factory('addStudent', function(
-        Student,
+        $interpolate,
         studentsGateway,
-        notify,
+        Student,
         StudentList,
-        CourseList
+        CourseList,
+        notify
     ){
+        var msgExp = $interpolate('<strong>Success!</strong> Student {{ name }} saved!');
         return function addStudent(){
             return studentsGateway.save(Student.get())
-                /* jshint: unused:false */
                 .then(function(savedStudent){
-                    notify('<strong>Success!</strong> Student '
-                        + savedStudent.name + ' saved!'
-                    ,'success');
+                    notify('success', msgExp({ name: savedStudent.name }));
                     StudentList.add(savedStudent);
                     CourseList.addStudent(savedStudent.course);
                     Student.reset();
