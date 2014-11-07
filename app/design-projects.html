@@ -1,0 +1,133 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>time keeper</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/main.css">
+    </head>
+    <body>
+        <style>
+            .project-list ul {
+                max-height: 200px;
+                overflow: scroll;
+            }
+        </style>
+    <!--
+        Stats on time to complete each lesson / unit / assignment (weeks)
+     -->
+        <div class="container">
+            <div class="header">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href="#">Week</a></li>
+                    <li><a href="#">Students</a></li>
+                    <li><a href="#">Manage</a></li>
+                </ul>
+                <h3 class="text-muted">time keeper</h3>
+            </div>
+
+            <section class="session">
+                <div class="navbar">
+                    <h3>Student Name <small>ANG-001v2</small> email@gmail.com</h3>
+                    <h4>
+                        <a href="https://github.com/username/">
+                            https://github.com/username/
+                        </a>
+                    </h4>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="row well">
+                            <div class="col-sm-8">
+                                <button class="btn btn-success btn-lg btn-block">
+                                    Start Recording
+                                </button>
+                                <button
+                                    disabled="disabled"
+                                    class="btn btn-danger btn-lg btn-block">
+                                    Stop Recording
+                                </button>
+                            </div>
+                            <div class="col-sm-4">
+                                <h1 class="count">
+                                    0:00
+                                </h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label for="notes">Notes</label>
+                                <textarea name="notes" rows="7" id="notes" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 project-list">
+                        <h4 class="text-center">Projects</h4>
+
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="#">Project 1</a>
+                            </li>
+                        </ul>
+                        <div class="well">
+                            <button class="btn btn-primary btn-block">
+                                Add Project
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="background">Background</label>
+                        <textarea
+                            name="background"
+                            rows="11"
+                            id="background"
+                            disabled="disabled"
+                            class="form-control">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quo, doloribus ab, dignissimos odit quidem numquam maiores perspiciatis, inventore totam, iure error hic praesentium delectus earum laborum incidunt eligendi! Aperiam.</textarea>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="goals">Goals</label>
+                        <textarea
+                            name="goals"
+                            rows="11"
+                            id="goals"
+                            disabled="disabled"
+                            class="form-control">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus itaque maxime voluptatum rem nobis. Accusamus maiores deleniti quas ab molestiae blanditiis, minima iusto, odit cum tenetur nihil nemo facere fugit.</textarea>
+                    </div>
+                </div>
+                <hr>
+            </section>
+
+            <section class="projects">
+
+            </section>
+
+        </div>
+
+</body>
+</html>
