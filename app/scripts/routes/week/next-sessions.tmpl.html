@@ -5,7 +5,10 @@
                 <a href="#">Student</a>
             </th>
             <th class="sort desc">
-                <a href="#">Time <i class="glyphicon glyphicon-chevron-down"></i></a>
+                <a href="#">Time<i class="glyphicon glyphicon-chevron-down"></i></a>
+            </th>
+            <th>
+                <a href="#">Day</a>
             </th>
             <th>
                 <a href="#">Session #</a>
@@ -17,18 +20,28 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="student">
+        <tr ng-if="!nS.studentList.length">
+            <td colspan="6">
+                No Students Homeboy
+            </td>
+        </tr>
+        <tr
+            ng-repeat="s in nS.studentList track by s.id"
+            class="student">
             <td class="name">
-                <a href="#">Bob</a>
+                {{::s.name }}
             </td>
             <td class="time">
-                02:00 - Wed, 2nd
+                {{::s.nextSession | date : 'HH:mm' }}
+            </td>
+            <td class="day">
+                {{::s.nextSession | date : 'EEE' }}
             </td>
             <td class="sessions">
-                2 / 13
+                {{::s.sessions.length + 1 }} / {{::s.numSessions }}
             </td>
             <td class="course">
-                FEWD
+                {{::s.course.name + "v" + s.course.version }}
             </td>
             <td class="actions">
                 <button class="btn btn-xs btn-danger">

@@ -10,10 +10,9 @@ angular.module('useCases')
             }
 
             function getThisWeeksSession(student, firstSession){
-                var sessionsHad = student.sessions.length - student.numSessions;
                 var sessionTime = moment(student.sessionTime);
                 return angular.copy(firstSession)
-                        .add(sessionsHad, 'weeks')
+                        .add(thisWeek.week() - firstSession.week(), 'weeks')
                         .day(student.sessionDay)
                         .hour(sessionTime.hour())
                         .minute(sessionTime.minute())
