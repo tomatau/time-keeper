@@ -8,6 +8,15 @@ angular.module('routes')
                 controllerAs: 'manage',
                 controller: 'manageCtrl',
                 resolve: {
+                    weekResolve: function(
+                        syncStudentList,
+                        setStudentsCourse,
+                        setStudentsSessions
+                    ){
+                        return syncStudentList()
+                            .then(setStudentsCourse)
+                            .then(setStudentsSessions);
+                    },
                     studentCount: function(resolveStudentCount){
                         return resolveStudentCount();
                     }
@@ -32,7 +41,6 @@ angular.module('routes')
     })
     .controller('manageCtrl', function(CourseList, StudentList){
         var vm = this;
-        vm.courseList = CourseList.get();
         vm.studentList = StudentList.get();
     })
 ;
