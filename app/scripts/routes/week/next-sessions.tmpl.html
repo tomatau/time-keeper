@@ -26,7 +26,7 @@
             </td>
         </tr>
         <tr
-            ng-repeat="s in nS.studentList track by s.id"
+            ng-repeat="s in nS.studentList | getNextStudents:week.numSessions track by s.id"
             class="student">
             <td class="name">
                 {{::s.name }}

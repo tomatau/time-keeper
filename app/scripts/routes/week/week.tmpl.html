@@ -5,11 +5,17 @@
             <fieldset class="form-group">
                 <label class="col-sm-2 control-label" for="num-shown">Show:</label>
                 <div class="col-sm-10">
-                    <select class="form-control input-sm" name="num-shown">
+                    <select
+                        name="num-shown"
+                        ng-init="week.numSessions = 2"
+                        ng-model="week.numSessions"
+                        class="form-control input-sm">
                         <option value="1">1</option>
-                        <option value="2" selected="selected">2</option>
+                        <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
                     </select>
                 </div>
             </fieldset>

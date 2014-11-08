@@ -51,17 +51,19 @@ angular.module('routes')
             });
     })
     .controller('weekCtrl', function(){ })
-    .controller('nextSessionsCtrl', function(ActiveStudents){
-        function getNextStudents(count){
-            return _.chain(ActiveStudents.get())
+    .filter('getNextStudents', function(){
+        return function getNextStudents(students, count){
+            return _.chain(students)
                 .filter(function(student){
                     return student.nextSession > moment().add(1, 'hour');
                 })
                 .sortBy(function(student){ return student.nextSession; })
-                .first(count).value();
-        }
+                .first(Number(count) || 2).value();
+        };
+    })
+    .controller('nextSessionsCtrl', function(ActiveStudents){
         var vm = this;
-        vm.studentList = getNextStudents(2);
+        vm.studentList = ActiveStudents.get();
     })
     .controller('weekSessionsCtrl', function(StudentsThisWeek){
         var vm = this;
