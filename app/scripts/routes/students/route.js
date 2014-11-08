@@ -8,12 +8,17 @@ angular.module('routes')
                 controllerAs: 'students',
                 controller: 'studentsCtrl',
                 resolve: {
-                    students: function(syncStudentList){
-                        return syncStudentList();
+                    studentsResolve:  function(
+                        $q,
+                        syncStudentList,
+                        syncCourseList,
+                        setStudentsCourse,
+                        setStudentsSessions
+                    ){
+                        return $q.all([syncStudentList(), syncCourseList()])
+                            .then(setStudentsCourse)
+                            .then(setStudentsSessions);
                     },
-                    courses: function(syncCourseList){
-                        return syncCourseList();
-                    }
                 }
             })
             .state('students', {
@@ -29,12 +34,8 @@ angular.module('routes')
             });
     })
     .controller('studentsCtrl', function(){ })
-    .controller('studentListCtrl', function(StudentList, CourseList){
-        var vm = this,
-            studentList = StudentList.get();
-        _.each(studentList, function(student, id){
-            studentList[id].course = CourseList.get(student.course);
-        });
-        vm.studentList = studentList;
+    .controller('studentListCtrl', function(StudentList){
+        var vm = this;
+        vm.studentList = StudentList.get();
     })
 ;

@@ -9,19 +9,18 @@ angular.module('routes')
                 controller: 'weekCtrl',
                 resolve: {
                     weekResolve: function(
+                        $q,
+                        syncCourseList,
                         syncStudentList,
                         setStudentsCourse,
                         setStudentsSessions,
                         setActiveStudents
                     ){
-                        return syncStudentList()
+                        return $q.all([syncStudentList(), syncCourseList()])
                             .then(setStudentsCourse)
                             .then(setStudentsSessions)
                             .then(setActiveStudents);
                     },
-                    courses: function(syncCourseList){
-                        return syncCourseList();
-                    }
                 }
             })
             .state('week', {
