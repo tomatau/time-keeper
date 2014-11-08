@@ -126,13 +126,13 @@
     </div>
     <div class="row">
         <fieldset class="form-group col-sm-3 required">
-            <label for="course" class="control-label">
+            <label for="courseId" class="control-label">
                 Course
             </label>
-            <button ng-model="form.entity.course"
-                id="course"
+            <button ng-model="form.entity.courseId"
+                id="courseId"
                 type="button"
-                name="course"
+                name="courseId"
                 bs-select
                 required
                 data-placeholder="--"
@@ -140,8 +140,8 @@
                             for c in form.courseList | orderBy:'name'"
                 class="btn btn-default form-control">
             </button>
-            <div ng-messages="studentForm.course.$error"
-                ng-if="studentForm.$submitted || studentForm.course.$touched">
+            <div ng-messages="studentForm.courseId.$error"
+                ng-if="studentForm.$submitted || studentForm.courseId.$touched">
                 <p ng-message="required" class="text-danger">
                     A course is required
                 </p>

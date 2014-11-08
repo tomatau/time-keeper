@@ -16,4 +16,10 @@ angular.module('routes', [
     .config(function($urlRouterProvider){
         $urlRouterProvider.otherwise('/');
     })
+    .factory('appResolve', function($q, syncCourseList, syncStudentList){
+        return $q.all([
+            syncCourseList(),
+            syncStudentList()
+        ]);
+    })
 ;

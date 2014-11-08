@@ -14,7 +14,7 @@ angular.module('useCases')
                 .then(function(savedStudent){
                     notify('success', msgExp({ name: savedStudent.name }));
                     StudentList.add(savedStudent);
-                    CourseList.addStudent(savedStudent.course);
+                    CourseList.addStudent(savedStudent.courseId);
                     Student.reset();
                 });
         };

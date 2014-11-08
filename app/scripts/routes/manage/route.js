@@ -9,13 +9,11 @@ angular.module('routes')
                 controller: 'manageCtrl',
                 resolve: {
                     weekResolve: function(
-                        $q,
-                        syncStudentList,
-                        syncCourseList,
+                        appResolve,
                         setStudentsCourse,
                         setStudentsSessions
                     ){
-                        return $q.all([syncStudentList(), syncCourseList()])
+                        return appResolve
                             .then(setStudentsCourse)
                             .then(setStudentsSessions);
                     }

@@ -1,6 +1,12 @@
 'use strict';
 angular.module('routes')
-    .config(function($stateProvider, ROUTESURL, URLMAP){
+    .config(function(
+        $stateProvider,
+        ROUTESURL,
+        URLMAP,
+        nextSessionView,
+        weekSessionView
+    ){
         $stateProvider
             .state('weekLayout', {
                 abstract: true,
@@ -9,14 +15,12 @@ angular.module('routes')
                 controller: 'weekCtrl',
                 resolve: {
                     weekResolve: function(
-                        $q,
-                        syncCourseList,
-                        syncStudentList,
+                        appResolve,
                         setStudentsCourse,
                         setStudentsSessions,
                         setActiveStudents
                     ){
-                        return $q.all([syncStudentList(), syncCourseList()])
+                        return appResolve
                             .then(setStudentsCourse)
                             .then(setStudentsSessions)
                             .then(setActiveStudents);
@@ -27,46 +31,14 @@ angular.module('routes')
                 url: URLMAP.week,
                 parent: 'weekLayout',
                 views: {
-                    nextSessions: {
+                    nextSessions: angular.extend(nextSessionView, {
                         templateUrl: ROUTESURL + 'week/next-sessions.tmpl.html',
-                        controllerAs: 'nS',
-                        controller: 'nextSessionsCtrl',
-                        resolve: {
-                            nextResolve: function(weekResolve, setStudentsNextSession){
-                                setStudentsNextSession();
-                            }
-                        }
-                    },
-                    weekSessions: {
+                    }),
+                    weekSessions: angular.extend(weekSessionView, {
                         templateUrl: ROUTESURL + 'week/week-sessions.tmpl.html',
-                        controllerAs: 'wS',
-                        controller: 'weekSessionsCtrl',
-                        resolve: {
-                            weekSessResolve: function(weekResolve, setStudentsThisWeek){
-                                setStudentsThisWeek();
-                            }
-                        }
-                    },
+                    }),
                 }
             });
     })
     .controller('weekCtrl', function(){ })
-    .filter('getNextStudents', function(){
-        return function getNextStudents(students, count){
-            return _.chain(students)
-                .filter(function(student){
-                    return student.nextSession > moment().add(1, 'hour');
-                })
-                .sortBy(function(student){ return student.nextSession; })
-                .first(Number(count) || 2).value();
-        };
-    })
-    .controller('nextSessionsCtrl', function(ActiveStudents){
-        var vm = this;
-        vm.studentList = ActiveStudents.get();
-    })
-    .controller('weekSessionsCtrl', function(StudentsThisWeek){
-        var vm = this;
-        vm.studentList = StudentsThisWeek.get();
-    })
 ;
