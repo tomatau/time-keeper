@@ -1,6 +1,6 @@
 'use strict';
 angular.module('routes')
-    .config(function($stateProvider, ROUTESURL, URLMAP){
+    .config(function($stateProvider, ROUTESURL, URLMAP, addCourseView, addStudentView){
         $stateProvider
             .state('manageLayout', {
                 abstract: true,
@@ -23,16 +23,12 @@ angular.module('routes')
                 url: URLMAP.manage,
                 parent: 'manageLayout',
                 views: {
-                    addCourse: {
+                    addCourse: angular.extend(addCourseView, {
                         templateUrl: ROUTESURL + 'manage/add-course.tmpl.html',
-                        controller: 'addCourseCtrl',
-                        controllerAs: 'aC',
-                    },
-                    addStudent: {
+                    }),
+                    addStudent: angular.extend(addStudentView, {
                         templateUrl: ROUTESURL + 'manage/add-student.tmpl.html',
-                        controller: 'addStudentCtrl',
-                        controllerAs: 'aS',
-                    }
+                    }),
                 }
             });
     })

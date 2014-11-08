@@ -1,5 +1,9 @@
 'use strict';
 angular.module('routes')
+    .constant('addStudentView', {
+        controller: 'addStudentCtrl',
+        controllerAs: 'aS',
+    })
     .controller('addStudentCtrl', function(Student, addStudent, closeModal){
         var vm = this;
         vm.student = Student.get();
