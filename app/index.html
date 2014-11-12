@@ -25,16 +25,13 @@
             <div class="header">
                 <ul class="nav nav-pills pull-right">
                     <li ui-sref-active="active">
-                        <a ui-sref="dashboard">Dash</a>
-                    </li>
-                    <li ui-sref-active="active">
                         <a ui-sref="week">Week</a>
                     </li>
                     <li ui-sref-active="active">
                         <a ui-sref="students">Students</a>
                     </li>
                     <li ui-sref-active="active">
-                        <a ui-sref="manage">Manage</a>
+                        <a ui-sref="courses">Courses</a>
                     </li>
                 </ul>
                 <h3 class="text-muted">time keeper</h3>
@@ -105,39 +102,38 @@
 
         <!-- Gateways -->
         <script src="scripts/gateways/gateways.js"></script>
+            <!-- IDB -->
         <script src="scripts/gateways/indexeddb/gateway.js"></script>
         <script src="scripts/gateways/indexeddb/courses-gateway.js"></script>
         <script src="scripts/gateways/indexeddb/students-gateway.js"></script>
 
         <!-- Use Cases -->
         <script src="scripts/use-cases/use-cases.js"></script>
-            <!-- secretary -->
-        <script src="scripts/use-cases/secretary/add-course.js"></script>
-        <script src="scripts/use-cases/secretary/sync-course-list.js"></script>
-        <script src="scripts/use-cases/secretary/add-student.js"></script>
-        <script src="scripts/use-cases/secretary/sync-student-list.js"></script>
-        <script src="scripts/use-cases/secretary/set-students-course.js"></script>
+            <!-- operations -->
+        <script src="scripts/use-cases/operations/add-course.js"></script>
+        <script src="scripts/use-cases/operations/sync-course-list.js"></script>
+        <script src="scripts/use-cases/operations/add-student.js"></script>
+        <script src="scripts/use-cases/operations/sync-student-list.js"></script>
+        <script src="scripts/use-cases/operations/set-students-course.js"></script>
+        <script src="scripts/use-cases/operations/set-students-sessions.js"></script>
             <!-- mentor -->
-        <script src="scripts/use-cases/mentor/set-students-sessions.js"></script>
         <script src="scripts/use-cases/mentor/set-active-students.js"></script>
         <script src="scripts/use-cases/mentor/set-students-next-session.js"></script>
         <script src="scripts/use-cases/mentor/set-students-this-week.js"></script>
+        <script src="scripts/use-cases/mentor/filter.next-sessions.js"></script>
+        <script src="scripts/use-cases/mentor/filter.missed-sessions.js"></script>
 
         <!-- Routes -->
         <script src="scripts/routes/routes.js"></script>
         <script src="scripts/routes/loading.js"></script>
-            <!-- dash -->
-        <script src="scripts/routes/dashboard/route.js"></script>
             <!-- week -->
-        <script src="scripts/routes/week/route.js"></script>
+        <script src="scripts/routes/week/week.js"></script>
         <script src="scripts/routes/week/next-sessions.ctrl.js"></script>
         <script src="scripts/routes/week/week-sessions.ctrl.js"></script>
-        <script src="scripts/routes/week/filter.next-sessions.js"></script>
-        <script src="scripts/routes/week/filter.missed-sessions.js"></script>
             <!-- students -->
-        <script src="scripts/routes/students/route.js"></script>
+        <script src="scripts/routes/students/students.js"></script>
             <!-- manage -->
-        <script src="scripts/routes/manage/route.js"></script>
+        <script src="scripts/routes/manage/manage.js"></script>
         <script src="scripts/routes/manage/add-student.js"></script>
         <script src="scripts/routes/manage/add-course.js"></script>
 

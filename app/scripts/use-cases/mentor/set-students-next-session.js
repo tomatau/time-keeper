@@ -1,6 +1,9 @@
 'use strict';
 angular.module('useCases')
     .factory('setStudentsNextSession', function(ActiveStudents){
+        // depends on:
+        // ActiveStudents
+        // student.sessions
         function getNextSession(student){
             var sessionTime = moment(student.sessionTime);
             return angular.copy(moment(student.firstSession))

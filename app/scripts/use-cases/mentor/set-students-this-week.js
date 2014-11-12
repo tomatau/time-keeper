@@ -1,6 +1,9 @@
 'use strict';
 angular.module('useCases')
     .factory('setStudentsThisWeek', function(ActiveStudents, StudentsThisWeek){
+        // depends on:
+        // ActiveStudents
+        // student.sessions
         return function setStudentsThisWeek(){
             var thisWeek = moment();
             StudentsThisWeek.reset();

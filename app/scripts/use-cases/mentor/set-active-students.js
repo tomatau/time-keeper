@@ -1,6 +1,9 @@
 'use strict';
 angular.module('useCases')
     .factory('setActiveStudents', function(StudentList, ActiveStudents){
+        // depends on:
+        // SessionList
+        // student.sessions
         return function setActiveStudents(){
             ActiveStudents.reset();
             _.each(StudentList.get(), function(student){

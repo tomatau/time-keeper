@@ -9,7 +9,7 @@ angular.module('routes', [
     .constant('ROUTESURL', 'scripts/routes/')
     .constant('URLMAP', {
         'dashboard' : '/',
-        'manage'    : '/manage',
+        'courses'   : '/courses',
         'students'  : '/students',
         'week'      : '/week',
     })
@@ -17,6 +17,7 @@ angular.module('routes', [
         $urlRouterProvider.otherwise('/');
     })
     .factory('appResolve', function($q, syncCourseList, syncStudentList){
+        // happens only once per page load (not route change)
         return $q.all([
             syncCourseList(),
             syncStudentList()
