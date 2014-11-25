@@ -5,8 +5,11 @@ angular.module('models')
             this.data = {};
         }
 
-        BaseModel.prototype.set = function(modelData){
-            angular.extend(this.data, modelData);
+        BaseModel.prototype.set = function(modelData, value){
+            if (typeof modelData == "string")
+                this.data[modelData] = value;
+            else
+                angular.extend(this.data, modelData);
         };
 
         BaseModel.prototype.get = function(prop) {
