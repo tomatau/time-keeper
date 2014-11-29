@@ -9,7 +9,7 @@ angular.module('models')
             if (typeof modelData == "string")
                 this.data[modelData] = value;
             else
-                angular.extend(this.data, modelData);
+                this.reset(), angular.extend(this.data, modelData);
         };
 
         BaseModel.prototype.get = function(prop) {
